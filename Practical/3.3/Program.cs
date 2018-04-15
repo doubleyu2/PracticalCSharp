@@ -10,6 +10,7 @@ namespace _3._3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello GitHub!!");
         }
     }
 }
