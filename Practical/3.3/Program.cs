@@ -16,9 +16,14 @@ namespace _3._3
             };
 
 
-            List<string> result = list.ConvertAll(s => s.ToUpper());
+            List<string> query = list.Where(s => s.Length <= 5)
+                                    .Select(s => $"값: {s}, P 포함여부 : {s.Contains("P")}")
+                                    .ToList();
 
-            result.ForEach(s => Console.WriteLine(s));
+            query.ForEach(s => Console.WriteLine(s));
+
+            
+
 
         }
         
