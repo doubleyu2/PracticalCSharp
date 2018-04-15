@@ -15,36 +15,14 @@ namespace _3._3
                 "Seoul", "New Delhi", "bangkok", "London", "Paris", "Berlin", "Canberra", "Hong Kong",
             };
 
-
-            List<string> foundList = list.FindAll(s => s.Length >= 5);
-
-            foreach (var item in foundList)
-            {
-                Console.WriteLine(item);
-            }
-
-            List<string> resultList = FindAll(list, s => s.Length >= 5);
-
-            foreach (var item in resultList)
-            {
-                Console.WriteLine(item);
-            }
-
-
-        }
-
-        public static List<string> FindAll(List<string> list, Predicate<string> predicate)
-        {
-            List<string> result = new List<string>();
+            int count = list.RemoveAll(s => s.Contains("on"));
+            Console.WriteLine(count);
 
             foreach (var item in list)
             {
-                if (predicate(item))
-                {
-                    result.Add(item);
-                }
+                Console.WriteLine(item);
             }
-            return result;
+       
 
         }
         
