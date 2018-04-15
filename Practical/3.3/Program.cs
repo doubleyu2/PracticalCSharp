@@ -15,14 +15,14 @@ namespace _3._3
                 "Seoul", "New Delhi", "bangkok", "London", "Paris", "Berlin", "Canberra", "Hong Kong",
             };
 
-            int count = list.RemoveAll(s => s.Contains("on"));
-            Console.WriteLine(count);
+            //Predicate -> 반환 타입이 bool인 delegate
+            //Action -> 반환 타입이 void인 delegate
+            list.ForEach(s => Console.WriteLine(s));
 
             foreach (var item in list)
             {
                 Console.WriteLine(item);
             }
-       
 
         }
         
