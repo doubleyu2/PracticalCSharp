@@ -16,31 +16,30 @@ namespace _3._3
             };
 
 
-            var exists = list.Exists(s => s[0] == 'A');
-            Console.WriteLine(exists);
-
-            var exists2 = Exists(list, s => s[0] == 'P');
-            Console.WriteLine(exists2);
+            int index = list.FindIndex(s => s == "Paris");
+            Console.WriteLine(index);
 
 
+            int index2 = FindIndex(list, s => s == "Paris");
+            Console.WriteLine(index2);
 
         }
+        
 
-        public static bool Exists(List<string> list, Predicate<string> predicate)
+        public static int FindIndex(List<string> list, Predicate<string> predicate)
         {
-            bool hasItem = false;
-            foreach (var item in list)
+            int index2 = -1;  // null 대신
+
+            for(int i = 0; i < list.Count; i++)
             {
-                if (predicate(item))
+                if (predicate(list[i]))
                 {
-                    hasItem = true;
+                    index2 = i;
                     break;
                 }
-                   
             }
-            return hasItem;
+            return index2;
         }
-
             
         
     }
