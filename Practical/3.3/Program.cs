@@ -16,31 +16,39 @@ namespace _3._3
             };
 
 
-            int index = list.FindIndex(s => s == "Paris");
-            Console.WriteLine(index);
+            List<string> foundList = list.FindAll(s => s.Length >= 5);
+
+            foreach (var item in foundList)
+            {
+                Console.WriteLine(item);
+            }
+
+            List<string> resultList = FindAll(list, s => s.Length >= 5);
+
+            foreach (var item in resultList)
+            {
+                Console.WriteLine(item);
+            }
 
 
-            int index2 = FindIndex(list, s => s == "Paris");
-            Console.WriteLine(index2);
+        }
+
+        public static List<string> FindAll(List<string> list, Predicate<string> predicate)
+        {
+            List<string> result = new List<string>();
+
+            foreach (var item in list)
+            {
+                if (predicate(item))
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
 
         }
         
-
-        public static int FindIndex(List<string> list, Predicate<string> predicate)
-        {
-            int index2 = -1;  // null 대신
-
-            for(int i = 0; i < list.Count; i++)
-            {
-                if (predicate(list[i]))
-                {
-                    index2 = i;
-                    break;
-                }
-            }
-            return index2;
-        }
-            
+        
         
     }
 }
