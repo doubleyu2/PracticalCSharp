@@ -16,36 +16,32 @@ namespace _3._3
             };
 
 
-            // 3.3.2 Find 메서드
+            var exists = list.Exists(s => s[0] == 'A');
+            Console.WriteLine(exists);
 
-            string name = list.Find(s => s.Length == 6);
-            Console.WriteLine(name);
+            var exists2 = Exists(list, s => s[0] == 'P');
+            Console.WriteLine(exists2);
 
-            string answer = Find(list, s => s.Length == 6);
-            Console.WriteLine(answer);
-            
 
 
         }
 
-
-        public static string Find(List<string> list, Predicate<string> judge)
+        public static bool Exists(List<string> list, Predicate<string> predicate)
         {
-            string result = string.Empty;
-
+            bool hasItem = false;
             foreach (var item in list)
             {
-                if (judge(item))
+                if (predicate(item))
                 {
-                    result = item;
+                    hasItem = true;
                     break;
                 }
-
+                   
             }
-
-
-            return result;
-
+            return hasItem;
         }
+
+            
+        
     }
 }
