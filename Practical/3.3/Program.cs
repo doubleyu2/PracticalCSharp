@@ -15,14 +15,10 @@ namespace _3._3
                 "Seoul", "New Delhi", "bangkok", "London", "Paris", "Berlin", "Canberra", "Hong Kong",
             };
 
-            //Predicate -> 반환 타입이 bool인 delegate
-            //Action -> 반환 타입이 void인 delegate
-            list.ForEach(s => Console.WriteLine(s));
 
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            List<string> result = list.ConvertAll(s => s.ToUpper());
+
+            result.ForEach(s => Console.WriteLine(s));
 
         }
         
