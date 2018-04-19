@@ -16,18 +16,42 @@ namespace _3._3
             };
 
 
-            List<string> query = list.Where(s => s.Length <= 5)
-                                    .Select(s => $"값: {s}, P 포함여부 : {s.Contains("P")}")
-                                    .ToList();
+            // 3.4.4
 
-            query.ForEach(s => Console.WriteLine(s));
+            // where 메서드만 쓰면 지연실행 상태가 됨.
+            // ToList나 ToArray 같이 바꿔주는 메서드를 실행하면 즉시 결과가 저장됨.
+            //IEnumerable<string> answer = list.Where(s => s.Length <= 5
+            IEnumerable<string> answer = list.Where(s => s.Length <= 5).ToList();
 
-            
+
+            foreach (var item in answer)
+            {
+                Console.WriteLine(item);
+            }
+
+            list[0] = "Busan";
+
+            foreach (var item in answer)
+            {
+                Console.WriteLine(item);
+            }
+
+            list[0] = "Busap";
+
+            foreach (var item in answer)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            var count = list.Count(s => s.Length <= 5);
+            Console.WriteLine(count);
+
 
 
         }
-        
-        
-        
+
+
+
     }
 }
