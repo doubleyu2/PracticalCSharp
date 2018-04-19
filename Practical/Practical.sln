@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.3", "3.3\3.3.csproj", "{AC6A3698-EDE6-406D-8E5A-CB3B23134F51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1 초기화와 관련된 관용구", "4.1 초기화와 관련된 관용구\4.1 초기화와 관련된 관용구.csproj", "{0F7F3D7A-75B6-445B-A792-D39AB62769CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC6A3698-EDE6-406D-8E5A-CB3B23134F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC6A3698-EDE6-406D-8E5A-CB3B23134F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC6A3698-EDE6-406D-8E5A-CB3B23134F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
