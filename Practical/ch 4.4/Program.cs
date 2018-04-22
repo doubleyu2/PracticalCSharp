@@ -10,11 +10,11 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
-            Print("안녕하세요");
+            Print();
 
         }
 
-        public static void Print(string msg, int n=1)
+        public static void Print(string msg="안녕하세요", int n=1)
         {
             for(int i = 1; i<= n; i++)
             {
