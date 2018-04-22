@@ -10,27 +10,31 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
+            var obj = new MySample();
+            obj.MyList.Add(6);              // obj 의 MyList 에 add. Get 만을 사용 
+
+            obj.Print();
+
+            obj.MyList = new List<int>();
 
         }
 
 
 
     }
-
-    class Sale
-    {
-        // 읽기 전용. 클래스 내부에서만 접근 가능
-        public int Length { get; private set; } = 5;
-
-        // 읽기 전용. 고정
-        public string Name => "홍길동";
-
-        public Sale()     // 생성자 method
-        {
-            Length = 5;
-           
-        }
     
-        
+    class MySample
+    {
+        public IReadOnlyList<int> MyList { get; private set; }
+
+        public MySample()
+        {
+            MyList = new List<int>() { 1, 2, 3, 4, 5, };
+        }
+
+        public void Print()
+        {
+            MyList.ForEach(i => Console.WriteLine(i));
+        }
     }
 }
