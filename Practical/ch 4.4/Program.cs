@@ -10,22 +10,28 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
-            string msg = null;
+            
+            Sale sale = null;
+            //sale이 null이면 Print 메서드 실행하지 마라는 뜻
+            sale?.Print();
 
-            //if (msg == null)
-            //{
-            //    msg = "안녕";
-            //}
-
-
-            string message = msg ?? "널입니다.";
-
-            Console.WriteLine(message);
+            if (sale != null)
+            {
+                sale.Print();
+            };
 
 
         }
 
 
 
+    }
+
+    class Sale
+    {
+        public void Print()
+        {
+            Console.WriteLine("안녕하세요");
+        }
     }
 }
