@@ -19,12 +19,18 @@ namespace ch_4._4
 
     class Sale
     {
-        // 프로퍼티 초기값 생성자를 거치지 않아도 됨
-        public int Length { get; set; } = 5;
+        // 읽기 전용. 클래스 내부에서만 접근 가능
+        public int Length { get; private set; } = 5;
 
-        public Sale()
+        // 읽기 전용. set이 없으면 생성자에서 지정이 가능하다. 또는 직접 초기화
+        public string Name { get; } = "aaa";
+
+        public Sale()     // 생성자 method
         {
             Length = 5;
+            Name = "홍길동";
         }
+    
+        
     }
 }
