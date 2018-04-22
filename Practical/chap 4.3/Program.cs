@@ -10,8 +10,17 @@ namespace chap_4._3
     {
         static void Main(string[] args)
         {
-            var nums = new List<int> { 1, 2, 3, 4, 5 };
-            nums.ForEach(n => Console.WriteLine(n));
+
+            //do while문은
+            //최소한 한 번 이상은 작업해야할 때 사용한다.
+
+            bool finish = true;
+
+            do
+            {
+                finish = true;
+
+            } while (!finish);
 
         }
     }
