@@ -61,6 +61,11 @@ namespace _3장_연습문제_정답
             {
                 Console.WriteLine("같은 이름의 도시를 찾을 수 없습니다.");
             }
+
+            Console.WriteLine("계속하려면 아무키나 눌러주세요");
+            // 문제 3.2.2 "o" 가 몇개있는지 세고 결과를 출력
+            Console.WriteLine($"문제3.2.2: {name.Count(s => s.Contains("o"))}");
+
         }
     }
 }
