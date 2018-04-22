@@ -10,22 +10,26 @@ namespace chap_4._2
     {
         static void Main(string[] args)
         {
-            //if 문에서 bool은 == true를 안해도 된다.
 
-            bool t = true;
+            bool t = IsTest(3, 5);
+            
 
-            if (t)
-            {
-
-            }
-
-            if (t == true)
-            {
-
-            }
-           
         }
 
+        public static bool IsTest(int a, int b)
+        {
+            /*
+             * if(a==b)
+             * {
+             *  return true;
+             * }
+             * else
+             * {
+             * return false;
+             * }
+             */ 
+            return a == b;
+        }
    
     }
 }
