@@ -31,8 +31,12 @@ namespace _3장_연습문제_정답
             Console.WriteLine("문제 3.1.2");
             numbers.ForEach(i => Console.WriteLine(i % 2));
 
-            // 문제 3.1.3 
-
+            // 문제 3.1.3 LINQ WHERE >= 50
+            var over50List = numbers.Where(i => i >= 50);
+            foreach (var item in over50List)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
