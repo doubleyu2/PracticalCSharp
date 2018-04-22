@@ -10,16 +10,17 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
-            Print();
+            int a = 3;
+            int b = 5;
 
-        }
+            Console.WriteLine($"{a},{b}");
 
-        public static void Print(string msg="안녕하세요", int n=1)
-        {
-            for(int i = 1; i<= n; i++)
-            {
-                Console.WriteLine(msg);
-            }
+            int temp = a;
+            a = b;
+            b = temp;
+
+            Console.WriteLine($"{a},{b}");
+
         }
 
     }
