@@ -10,16 +10,6 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
-            
-            Sale sale = null;
-            //sale이 null이면 Print 메서드 실행하지 마라는 뜻
-            sale?.Print();
-
-            if (sale != null)
-            {
-                sale.Print();
-            };
-
 
         }
 
@@ -29,9 +19,12 @@ namespace ch_4._4
 
     class Sale
     {
-        public void Print()
+        // 프로퍼티 초기값 생성자를 거치지 않아도 됨
+        public int Length { get; set; } = 5;
+
+        public Sale()
         {
-            Console.WriteLine("안녕하세요");
+            Length = 5;
         }
     }
 }
