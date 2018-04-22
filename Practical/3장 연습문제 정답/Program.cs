@@ -42,6 +42,25 @@ namespace _3장_연습문제_정답
 
             List<int> doubleNum = numbers.Select(i => i * 2).ToList();
             doubleNum.ForEach(i => Console.WriteLine(i));
+
+
+            // 문제 3.2.1
+            var name = new List<string>
+            {
+                "Seoul", "New Delhi","Bangkok", "London", "Paris", "Berlin", "Canberra", "Hong Kong",
+            };
+
+            string input = Console.ReadLine();
+            int foundIndex = name.FindIndex(s => s == input);
+
+            if (foundIndex >= 0)
+            {
+                Console.WriteLine($"{input} 은 {foundIndex + 1}번째에 저장되어 있습니다.");
+            }
+            else
+            {
+                Console.WriteLine("같은 이름의 도시를 찾을 수 없습니다.");
+            }
         }
     }
 }
