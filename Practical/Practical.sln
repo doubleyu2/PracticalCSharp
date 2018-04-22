@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.3", "3.3\3.3.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1 초기화와 관련된 관용구", "4.1 초기화와 관련된 관용구\4.1 초기화와 관련된 관용구.csproj", "{0F7F3D7A-75B6-445B-A792-D39AB62769CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "연습문제 3장", "연습문제 3장\연습문제 3장.csproj", "{C2356248-05F3-4BA7-8D36-71568B14D0D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7F3D7A-75B6-445B-A792-D39AB62769CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2356248-05F3-4BA7-8D36-71568B14D0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2356248-05F3-4BA7-8D36-71568B14D0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2356248-05F3-4BA7-8D36-71568B14D0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2356248-05F3-4BA7-8D36-71568B14D0D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
