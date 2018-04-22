@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "연습문제 3장", "연습
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3장 연습문제 정답", "3장 연습문제 정답\3장 연습문제 정답.csproj", "{C9E1BBD8-2DEA-4BCC-85BF-C111D1D45D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chap 4.2", "chap 4.2\chap 4.2.csproj", "{53070092-AAD4-4F14-9DD0-6067D1DED2CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C9E1BBD8-2DEA-4BCC-85BF-C111D1D45D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E1BBD8-2DEA-4BCC-85BF-C111D1D45D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E1BBD8-2DEA-4BCC-85BF-C111D1D45D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53070092-AAD4-4F14-9DD0-6067D1DED2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53070092-AAD4-4F14-9DD0-6067D1DED2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53070092-AAD4-4F14-9DD0-6067D1DED2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53070092-AAD4-4F14-9DD0-6067D1DED2CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
