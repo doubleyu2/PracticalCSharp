@@ -10,11 +10,22 @@ namespace ch_4._4
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
-            int intInput = int.Parse(input);
+            string msg = null;
 
-            bool result = intInput % 5 == 0 ? true : false;
-            Console.WriteLine(result);
+            //if (msg == null)
+            //{
+            //    msg = "안녕";
+            //}
+
+
+            string message = msg ?? "널입니다.";
+
+            Console.WriteLine(message);
+
+
         }
+
+
+
     }
 }
