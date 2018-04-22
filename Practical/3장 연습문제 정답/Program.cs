@@ -37,6 +37,11 @@ namespace _3장_연습문제_정답
             {
                 Console.WriteLine(item);
             }
+
+            // 문제 3.1.4 SELECT 로 값 2배 만들고 List<int> 에 저장. 출력
+
+            List<int> doubleNum = numbers.Select(i => i * 2).ToList();
+            doubleNum.ForEach(i => Console.WriteLine(i));
         }
     }
 }
