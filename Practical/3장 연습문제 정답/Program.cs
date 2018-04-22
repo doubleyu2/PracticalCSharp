@@ -26,6 +26,13 @@ namespace _3장_연습문제_정답
                 Console.WriteLine("false");
             }
 
+            // 문제 3.1.2 
+
+            Console.WriteLine("문제 3.1.2");
+            numbers.ForEach(i => Console.WriteLine(i % 2));
+
+            // 문제 3.1.3 
+
         }
     }
 }
