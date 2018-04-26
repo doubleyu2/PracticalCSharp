@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,24 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            var text = "The quick brown fox jumpts over the lazy dog";
+            StringBuilder sb = new StringBuilder();
 
-            string[] words = text.Split(' ');
-            
-            foreach (var item in words)
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var s1 = "ABC";
+
+            for (int i = 0; i < 10000000; i++)
             {
-                Console.WriteLine(item);
+                // s1 += "A";
+                sb.Append("A");
             }
 
-            
+            sw.Stop();
+
+            double seconds = sw.Elapsed.TotalSeconds;
+            Console.WriteLine(sb.ToString());
+            Console.WriteLine(seconds);
+
         }
     }
 }
