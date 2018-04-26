@@ -12,10 +12,9 @@ namespace _5장
         {
             string str = "I hope you could come with us.";
 
-            var replaced = str.Replace("hope", "wish");
+            var replaced = str.ToUpper();
 
             Console.WriteLine(replaced);
-
     
             
             //숫자만 출력
