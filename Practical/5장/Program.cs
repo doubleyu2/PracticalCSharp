@@ -11,23 +11,12 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            StringBuilder sb = new StringBuilder();
+            int number = 12345;
+            var s1 = number.ToString();
+            var s2 = number.ToString("#,#.0");
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var s1 = "ABC";
-
-            for (int i = 0; i < 10000000; i++)
-            {
-                // s1 += "A";
-                sb.Append("A");
-            }
-
-            sw.Stop();
-
-            double seconds = sw.Elapsed.TotalSeconds;
-            Console.WriteLine(sb.ToString());
-            Console.WriteLine(seconds);
+            Console.WriteLine(s2);
+           
 
         }
     }
