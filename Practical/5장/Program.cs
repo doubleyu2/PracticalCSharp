@@ -10,40 +10,14 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            string str = "012WERJUIJSDF34567";
+            string str = "01234";
 
-            int start = -1;
-            int count = 0;
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (!char.IsDigit(str[i]))
-                {
-                    if (start == -1)
-                    {
-                        start = i;
-                    }
-                    count++;
-
-                }
-                else
-                {
-                    if (start != -1)
-                    { 
-                        break;
-                    }
-                }
-            
-
-            }
-
-    
-
-
-    
-            var result = str.Remove(start, count);
+            string result = str.Insert(2, "abc");
 
             Console.WriteLine(result);
 
+    
+            
             //숫자만 출력
 
         }
