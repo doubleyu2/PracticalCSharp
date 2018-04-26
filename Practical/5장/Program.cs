@@ -10,14 +10,16 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            var languages = new[] { "C#", "Java", "VB", "Ruby" };
-            var separator = ", ";
+            var text = "The quick brown fox jumpts over the lazy dog";
 
-            var result = String.Join(separator, languages);
+            string[] words = text.Split(' ');
+            
+            foreach (var item in words)
+            {
+                Console.WriteLine(item);
+            }
 
-            Console.WriteLine(result);
-            //숫자만 출력
-
+            
         }
     }
 }
