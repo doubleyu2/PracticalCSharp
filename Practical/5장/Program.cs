@@ -12,20 +12,20 @@ namespace _5장
         {
             string str = "Visual Studio";
 
-            if (str.Contains("Str"))
-            {
+            bool has = str.Any(c => c == 'i');
+            bool hastoOf = false;
 
+            foreach (var item in str)
+            {
+                if(item == 'i')
+                {
+                    hastoOf = true;
+                    break;
+                }  
             }
 
-
-            int idx = str.IndexOf("stu", StringComparison.CurrentCultureIgnoreCase);
-
-            Console.WriteLine(idx);
-
-            if (idx >= 0)
-            {
-
-            }
+            Console.WriteLine(has);
+            Console.WriteLine(hastoOf);
         }
     }
 }
