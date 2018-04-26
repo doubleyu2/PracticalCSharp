@@ -10,11 +10,11 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            string str = "01234";
+            string str = "I hope you could come with us.";
 
-            string result = str.Insert(2, "abc");
+            var replaced = str.Replace("hope", "wish");
 
-            Console.WriteLine(result);
+            Console.WriteLine(replaced);
 
     
             
