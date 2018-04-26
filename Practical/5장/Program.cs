@@ -12,9 +12,9 @@ namespace _5장
         {
             string str = "Visual Studio";
 
-            if (str.StartsWith("visual", StringComparison.CurrentCultureIgnoreCase))
-            { 
-                Console.WriteLine("시작합니다.");
+            if (str.Contains("St"))
+            {
+                Console.WriteLine("포함됨");
             }
         }
     }
