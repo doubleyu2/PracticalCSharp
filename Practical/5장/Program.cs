@@ -10,22 +10,23 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            string str = "Visual Studio";
+            string str = "1414q1356";
 
-            bool has = str.Any(c => c == 'i');
-            bool hastoOf = false;
+            bool all = str.All(c => char.IsDigit(c));
+            Console.WriteLine(all);
+
+            bool result = false;
 
             foreach (var item in str)
             {
-                if(item == 'i')
+                if (char.IsDigit(item) == false)
                 {
-                    hastoOf = true;
+                    result = false;
                     break;
-                }  
-            }
+                }
 
-            Console.WriteLine(has);
-            Console.WriteLine(hastoOf);
+                result = true;
+            }
         }
     }
 }
