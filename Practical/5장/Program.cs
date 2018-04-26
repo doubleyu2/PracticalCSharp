@@ -10,13 +10,12 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            string str = "I hope you could come with us.";
+            var languages = new[] { "C#", "Java", "VB", "Ruby" };
+            var separator = ", ";
 
-            var replaced = str.ToUpper();
+            var result = String.Join(separator, languages);
 
-            Console.WriteLine(replaced);
-    
-            
+            Console.WriteLine(result);
             //숫자만 출력
 
         }
