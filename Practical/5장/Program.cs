@@ -10,23 +10,16 @@ namespace _5장
     {
         static void Main(string[] args)
         {
-            string str = "1414q1356";
+            string str = "Novelist=김만중;BestWork=구운몽;Born=1687";
+            string find = "BestWork=";
+            var startIndex = str.IndexOf(find) + find.Length;
+            var endIndex = str.IndexOf(";", startIndex); 
+            string bestwork = str.Substring(startIndex, endIndex - startIndex);
 
-            bool all = str.All(c => char.IsDigit(c));
-            Console.WriteLine(all);
+            Console.WriteLine(bestwork);
+            
 
-            bool result = false;
 
-            foreach (var item in str)
-            {
-                if (char.IsDigit(item) == false)
-                {
-                    result = false;
-                    break;
-                }
-
-                result = true;
-            }
         }
     }
 }
