@@ -12,9 +12,19 @@ namespace _5장
         {
             string str = "Visual Studio";
 
-            if (str.Contains("St"))
+            if (str.Contains("Str"))
             {
-                Console.WriteLine("포함됨");
+
+            }
+
+
+            int idx = str.IndexOf("stu", StringComparison.CurrentCultureIgnoreCase);
+
+            Console.WriteLine(idx);
+
+            if (idx >= 0)
+            {
+
             }
         }
     }
