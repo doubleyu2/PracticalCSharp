@@ -28,9 +28,12 @@ namespace _6장
 
             var bookList = books.TakeWhile(b => b.Price < 600).ToList();
             bookList.ForEach(b => Console.WriteLine(b.Title));
-
+            Console.WriteLine();
             var bookList2 = books.Where(b => b.Price < 600).ToList();
             bookList2.ForEach(b => Console.WriteLine(b.Title));
+            Console.WriteLine();
+            var bookList3 = books.SkipWhile(b => b.Price < 600).ToList();
+            bookList3.ForEach(b => Console.WriteLine(b.Title));
 
 
 
