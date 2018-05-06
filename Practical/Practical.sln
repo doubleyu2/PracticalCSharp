@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4장 연습문제 유유선
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5장", "5장\5장.csproj", "{B5F8EEFF-7B4F-48CA-A49A-CBA06E32C357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5장 연습문제", "5장 연습문제\5장 연습문제.csproj", "{BED2AD44-A3A2-4A3E-B964-D25FC42053FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6장", "6장\6장.csproj", "{70AD01AA-7FB8-4B0C-BCF0-FB07034EF656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{B5F8EEFF-7B4F-48CA-A49A-CBA06E32C357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F8EEFF-7B4F-48CA-A49A-CBA06E32C357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F8EEFF-7B4F-48CA-A49A-CBA06E32C357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED2AD44-A3A2-4A3E-B964-D25FC42053FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED2AD44-A3A2-4A3E-B964-D25FC42053FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED2AD44-A3A2-4A3E-B964-D25FC42053FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED2AD44-A3A2-4A3E-B964-D25FC42053FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70AD01AA-7FB8-4B0C-BCF0-FB07034EF656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70AD01AA-7FB8-4B0C-BCF0-FB07034EF656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70AD01AA-7FB8-4B0C-BCF0-FB07034EF656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70AD01AA-7FB8-4B0C-BCF0-FB07034EF656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
