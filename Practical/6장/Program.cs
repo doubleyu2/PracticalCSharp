@@ -14,14 +14,10 @@ namespace _6장
         static void Main(string[] args)
         {
 
-            var array = Enumerable.Range(1, 20).ToArray();
+            var numbers = new List<int> { 9, 7, 5, 4, 2, 5, 4, 0, 4,1, 0, 4 };
+            var average = numbers.Average();
 
-            foreach (var x in array)
-            {
-                Console.WriteLine(x);
-            }
-
-
+            Console.WriteLine(average);
 
 
         }
