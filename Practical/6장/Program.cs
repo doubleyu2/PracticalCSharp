@@ -26,8 +26,8 @@ namespace _6장
             };
 
             double averPrice = books.Average(b => b.Price);
-            
-            Console.WriteLine(averPrice);
+            double sumPages = books.Sum(b => b.Pages);
+            Console.WriteLine(sumPages);
           
 
 
