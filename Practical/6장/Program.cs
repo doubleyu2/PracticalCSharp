@@ -26,14 +26,9 @@ namespace _6장
                 new Book {Title = "금수회의록", Price = 514, Pages = 268},
             };
 
-            var bookList = books.TakeWhile(b => b.Price < 600).ToList();
-            bookList.ForEach(b => Console.WriteLine(b.Title));
-            Console.WriteLine();
-            var bookList2 = books.Where(b => b.Price < 600).ToList();
-            bookList2.ForEach(b => Console.WriteLine(b.Title));
-            Console.WriteLine();
-            var bookList3 = books.SkipWhile(b => b.Price < 600).ToList();
-            bookList3.ForEach(b => Console.WriteLine(b.Title));
+            var lengths = books.Select(b => b.Title.Length).Distinct().ToList();
+            
+            lengths.ForEach(x => Console.WriteLine(x));
 
 
 
