@@ -13,6 +13,8 @@ namespace _6장
     {
         static void Main(string[] args)
         {
+            var numbers = new List<int> { 9, 7, -5, 2, 5, 4, 2, -4, 8, -1, 6, 4 };
+            var min = numbers.Where(n => n > 0).Min();
 
             var books = new List<Book>
             {
@@ -25,20 +27,35 @@ namespace _6장
                 new Book {Title = "금수회의록", Price = 514, Pages = 268},
             };
 
+
+
             double averPrice = books.Average(b => b.Price);
             double sumPages = books.Sum(b => b.Pages);
             Console.WriteLine(sumPages);
+
+
+            var book = books.Max();
+
+            Console.WriteLine($"제목: {book.Title}, 가격: {book.Price}, 페이지 수: {book.Pages}");
           
+
 
 
         }
     }
 
-    class Book
+    class Book : IComparable<Book>
     {
         public string Title { get; set; }
         public int Price { get; set; }
         public int Pages { get; set; }
+
+
+
+        public int CompareTo(Book other)
+        {
+            return Price.CompareTo(other.Price);
+        }
     }
 
 
