@@ -14,7 +14,6 @@ namespace _6장
         static void Main(string[] args)
         {
             var numbers = new List<int> { 9, 7, -5, 2, 5, 4, 2, -4, 8, -1, 6, 4 };
-            var min = numbers.Where(n => n > 0).Min();
 
             var books = new List<Book>
             {
@@ -28,19 +27,16 @@ namespace _6장
             };
 
 
+            var count = numbers.Count(x => x >= 7);
+            Console.WriteLine(count);
 
-            double averPrice = books.Average(b => b.Price);
-            double sumPages = books.Sum(b => b.Pages);
-            Console.WriteLine(sumPages);
+            // pages >= 400, Price >= 600
 
+            // var temp = books.Count(b => b.Pages >= 400 && b.Price >= 600);
 
-            var book = books.Max();
+            var temp = books.Where(b => b.Pages >= 400 && b.Price >= 600).Count();
 
-            Console.WriteLine($"제목: {book.Title}, 가격: {book.Price}, 페이지 수: {book.Pages}");
-          
-
-
-
+            Console.WriteLine(temp);
         }
     }
 
