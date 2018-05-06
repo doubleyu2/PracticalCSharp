@@ -26,17 +26,9 @@ namespace _6장
                 new Book {Title = "금수회의록", Price = 514, Pages = 268},
             };
 
-
-            var count = numbers.Count(x => x >= 7);
-            Console.WriteLine(count);
-
-            // pages >= 400, Price >= 600
-
-            // var temp = books.Count(b => b.Pages >= 400 && b.Price >= 600);
-
-            var temp = books.Where(b => b.Pages >= 400 && b.Price >= 600).Count();
-
-            Console.WriteLine(temp);
+            var result = books.Any(b => b.Title.Length == 4);
+            Console.WriteLine(result);
+          
         }
     }
 
