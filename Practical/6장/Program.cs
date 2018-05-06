@@ -14,9 +14,13 @@ namespace _6장
         static void Main(string[] args)
         {
 
-            var numbers = Enumerable.Repeat(-1, 20).ToList();
+            var array = Enumerable.Range(1, 20).ToArray();
 
-            numbers.ForEach(x => Console.WriteLine(x));
+            foreach (var x in array)
+            {
+                Console.WriteLine(x);
+            }
+
 
 
 
