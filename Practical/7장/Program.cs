@@ -10,6 +10,17 @@ namespace _7장
     {
         static void Main(string[] args)
         {
+            Dictionary<string, int> flowerDict = new Dictionary<string, int>
+            {
+                ["sunflower"] = 400,
+                ["pansy"] = 300
+            };
+
+
+            flowerDict["sunflower"] = 200;
+
+
+
         }
     }
 }
