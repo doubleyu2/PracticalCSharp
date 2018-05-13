@@ -16,9 +16,10 @@ namespace _7장
                 ["pansy"] = 300
             };
 
-            var average = flowerDict.Average(x => x.Value);
-            Console.WriteLine(average);
-
+            foreach (var item in flowerDict.Keys)
+            {
+                Console.WriteLine(item);
+            }
 
 
 
