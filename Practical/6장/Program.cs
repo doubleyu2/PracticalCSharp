@@ -15,21 +15,15 @@ namespace _6장
         {
             var numbers = new int[] { 5, 10, 17, 9, 3, 21, 10, 40, 21, 3, 35 };
 
-            var result = numbers.Max();
+            var result = numbers.OrderBy(i => i).Take(3).ToList();
 
-            Console.WriteLine($"Max: {result}");
+            result.ForEach(i => Console.WriteLine(i));
 
-            Console.WriteLine();
-
-            var temp = numbers.Length - 2; 
-            var result2 = numbers.Skip(temp).ToList();
-            result2.ForEach(i => Console.WriteLine(i));
+            var result2 = numbers.Distinct().Where(i => i > 10).Count();
 
             Console.WriteLine();
+            Console.WriteLine(result2);
 
-            var result3 = numbers.Select(i => i.ToString()).ToList();
-
-            result3.ForEach(s => Console.WriteLine(s));
 
         
 
