@@ -31,13 +31,36 @@ namespace _6장
 
             var temp3 = books.Where(s => s.Title.Contains("C#")).Average(book => book.Pages);
 
+            var temp4 = books.FirstOrDefault(book => book.Price >= 40000);
+
+            var temp5 = books.Where(book => book.Price < 40000).Max(book => book.Pages);
+
+            var temp6 = books.Where(book => book.Pages >= 400).OrderByDescending(book => book.Price).ToList();
+
+            var temp7 = books.Where(book => book.Pages <= 500 && book.Title.Contains("C#")).ToList();
+
+
             Console.WriteLine();
             Console.WriteLine(temp2);
 
             Console.WriteLine();
             Console.WriteLine(temp3);
 
-            
+            Console.WriteLine();
+            Console.WriteLine(temp4.Title);
+
+            Console.WriteLine();
+            Console.WriteLine(temp5);
+
+            Console.WriteLine();
+            temp6.ForEach(book => Console.WriteLine($"{book.Title}, {book.Price}"));
+
+            Console.WriteLine();
+            temp7.ForEach(book => Console.WriteLine(book.Title));
+
+
+
+
         }
     }
 
