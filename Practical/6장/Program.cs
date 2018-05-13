@@ -26,12 +26,9 @@ namespace _6장
                 new Book {Title = "금수회의록", Price = 514, Pages = 268},
             };
 
-            var list = books.OrderBy(b => b.Title.Length).ToList();
-            list.ForEach(b => Console.WriteLine(b.Title));
-
-
-
-
+            var result = books.Any(b => b.Title.Length == 4);
+            Console.WriteLine(result);
+          
         }
     }
 
