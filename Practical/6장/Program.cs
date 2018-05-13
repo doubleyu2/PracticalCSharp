@@ -13,47 +13,30 @@ namespace _6장
     {
         static void Main(string[] args)
         {
-            var numbers = new List<int> { 9, 7, -5, 2, 5, 4, 2, -4, 8, -1, 6, 4 };
+            var numbers = new int[] { 5, 10, 17, 9, 3, 21, 10, 40, 21, 3, 35 };
 
+            var result = numbers.Max();
 
+            Console.WriteLine($"Max: {result}");
 
+            Console.WriteLine();
 
+            var temp = numbers.Length - 2; 
+            var result2 = numbers.Skip(temp).ToList();
+            result2.ForEach(i => Console.WriteLine(i));
 
+            Console.WriteLine();
 
+            var result3 = numbers.Select(i => i.ToString()).ToList();
 
-            var books = new List<Book>
-            {
-                new Book {Title = "태평천하", Price = 400, Pages = 378 },
-                new Book {Title = "운수 좋은 날", Price = 281, Pages = 212},
-                new Book {Title = "만세전", Price = 389, Pages = 201},
-                new Book {Title = "삼대", Price = 637, Pages = 464},
-                new Book {Title = "상록수", Price = 411, Pages = 276},
-                new Book {Title = "혈의 누", Price = 961, Pages = 666},
-                new Book {Title = "금수회의록", Price = 514, Pages = 268},
-            };
+            result3.ForEach(s => Console.WriteLine(s));
 
-            var list = books.OrderBy(b => b.Title.Length).ToList();
-            list.ForEach(b => Console.WriteLine(b.Title));
-
-
-
+        
 
         }
     }
 
-    class Book : IComparable<Book>
-    {
-        public string Title { get; set; }
-        public int Price { get; set; }
-        public int Pages { get; set; }
-
-
-
-        public int CompareTo(Book other)
-        {
-            return Price.CompareTo(other.Price);
-        }
-    }
+  
 
 
 }
