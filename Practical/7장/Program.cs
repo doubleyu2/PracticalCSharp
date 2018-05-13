@@ -14,24 +14,17 @@ namespace _7장
             Dictionary<string, int> flowerDict = new Dictionary<string, int>
             {
                 ["sunflower"] = 400,
-                ["pansy"] = 300
+                ["pansy"] = 300,
+                ["tulip"] = 200,
+                ["rose"] = 500,
+                ["dahlia"] = 400,
             };
 
 
-            var employees = new List<Employee>()
+            var dict = flowerDict.Where(p => p.Value >= 400).ToDictionary(p => p.Key, p => p.Value);
+            foreach (var item in dict)
             {
-                new Employee() { Code = 100, Name = "이몽룡" },
-                new Employee() { Code = 112, Name = "변학도" },
-                new Employee() { Code = 125, Name = "성춘향" },
-
-
-            };
-
-            var employeeDict = employees.ToDictionary(e => e.Code, e => e.Name);
-
-            foreach (var item in employeeDict)
-            {
-                Console.WriteLine($"{item.Key}, {item.Value}");
+                Console.WriteLine($"{item.Key}:{item.Value}");
             }
 
         }
