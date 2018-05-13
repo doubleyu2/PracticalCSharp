@@ -16,14 +16,11 @@ namespace _7장
                 ["pansy"] = 300
             };
 
+            var average = flowerDict.Average(x => x.Value);
+            Console.WriteLine(average);
 
-            flowerDict["sunflower"] = 200;
 
 
-            foreach (var item in flowerDict)
-            {
-                Console.WriteLine($"{item.Key}, {item.Value}");
-            }
 
         }
     }
