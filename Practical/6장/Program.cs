@@ -15,6 +15,12 @@ namespace _6장
         {
             var numbers = new List<int> { 9, 7, -5, 2, 5, 4, 2, -4, 8, -1, 6, 4 };
 
+
+
+
+
+
+
             var books = new List<Book>
             {
                 new Book {Title = "태평천하", Price = 400, Pages = 378 },
