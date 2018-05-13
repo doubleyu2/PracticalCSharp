@@ -20,6 +20,10 @@ namespace _7장
             flowerDict["sunflower"] = 200;
 
 
+            foreach (var item in flowerDict)
+            {
+                Console.WriteLine($"{item.Key}, {item.Value}");
+            }
 
         }
     }
