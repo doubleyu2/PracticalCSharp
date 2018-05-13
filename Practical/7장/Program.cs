@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _7장
 {
+
     class Program
     {
         static void Main(string[] args)
@@ -16,13 +17,29 @@ namespace _7장
                 ["pansy"] = 300
             };
 
-            foreach (var item in flowerDict.Keys)
+
+            var employees = new List<Employee>()
             {
-                Console.WriteLine(item);
+                new Employee() { Code = 100, Name = "이몽룡" },
+                new Employee() { Code = 112, Name = "변학도" },
+                new Employee() { Code = 125, Name = "성춘향" },
+
+
+            };
+
+            var employeeDict = employees.ToDictionary(e => e.Code, e => e.Name);
+
+            foreach (var item in employeeDict)
+            {
+                Console.WriteLine($"{item.Key}, {item.Value}");
             }
 
-
-
         }
+    }
+
+    class Employee
+    {
+        public int Code { get; set; }
+        public string Name { get; set; }
     }
 }
