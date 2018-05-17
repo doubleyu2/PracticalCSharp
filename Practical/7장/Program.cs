@@ -11,28 +11,64 @@ namespace _7장
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> flowerDict = new Dictionary<string, int>
+
+            var dict = new Dictionary<MonthDay, string>
             {
-                ["sunflower"] = 400,
-                ["pansy"] = 300,
-                ["tulip"] = 200,
-                ["rose"] = 500,
-                ["dahlia"] = 400,
+                [new MonthDay(6, 6)] = "현충일",
+                [new MonthDay(8, 15)] = "광복절",
+                [new MonthDay(10, 3)] = "개천절",
             };
 
+            var md = new MonthDay(8, 15);
+            var md2 = new MonthDay(8, 15);
 
-            var dict = flowerDict.Where(p => p.Value >= 400).ToDictionary(p => p.Key, p => p.Value);
-            foreach (var item in dict)
+            if (md.Equals(md2))
             {
-                Console.WriteLine($"{item.Key}:{item.Value}");
+                Console.WriteLine("같다.");
             }
-
+            var s = dict[md];
+            
+            Console.WriteLine(s);
+            
         }
     }
 
-    class Employee
+    class MonthDay
     {
-        public int Code { get; set; }
-        public string Name { get; set; }
+        public int Day { get; private set; }
+        public int Month { get; private set; }
+
+        public MonthDay(int month, int day)
+        {
+            this.Month = month;
+            this.Day = day;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var md = obj as MonthDay;
+
+            if (md == null)
+            {
+                return false;
+            }
+
+            if (md.Month == this.Month)                 // 실행 주체 this 는 md MonthDay class.
+            {
+                if (md.Day == this.Day)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 93243338;
+            hashCode = hashCode * -1521134295 + Day.GetHashCode();
+            hashCode = hashCode * -1521134295 + Month.GetHashCode();
+            return hashCode;
+        }
     }
 }
