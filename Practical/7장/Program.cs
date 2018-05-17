@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,64 +12,61 @@ namespace _7장
     {
         static void Main(string[] args)
         {
-
-            var dict = new Dictionary<MonthDay, string>
+            var lines = File.ReadAllLines("sample.txt");
+            var we = new WordExtractor(lines);
+            foreach (var word in we.Extract())
             {
-                [new MonthDay(6, 6)] = "현충일",
-                [new MonthDay(8, 15)] = "광복절",
-                [new MonthDay(10, 3)] = "개천절",
-            };
-
-            var md = new MonthDay(8, 15);
-            var md2 = new MonthDay(8, 15);
-
-            if (md.Equals(md2))
-            {
-                Console.WriteLine("같다.");
+                Console.WriteLine(word);
             }
-            var s = dict[md];
-            
-            Console.WriteLine(s);
-            
+
+           
+
         }
     }
 
-    class MonthDay
+    class WordExtractor
     {
-        public int Day { get; private set; }
-        public int Month { get; private set; }
+        private string[] _lines;
 
-        public MonthDay(int month, int day)
+        public WordExtractor(string[] lines)
         {
-            this.Month = month;
-            this.Day = day;
+            _lines = lines;
         }
 
-        public override bool Equals(object obj)
+        private char[] _separators = @" !?"",.".ToCharArray();
+
+        public IEnumerable<string> Extract()
         {
-            var md = obj as MonthDay;
-
-            if (md == null)
+            var hash = new HashSet<string>(); // 2000번지
+            foreach (var line in _lines)
             {
-                return false;
-            }
-
-            if (md.Month == this.Month)                 // 실행 주체 this 는 md MonthDay class.
-            {
-                if (md.Day == this.Day)
+                var words = GetWords(line);
+                foreach (var word in words)
                 {
-                    return true;
+                    if (word.Length >= 10)
+                        hash.Add(word.ToLower());
+                    
                 }
             }
-            return false;
+
+            return hash.OrderBy(s => s);
+
         }
 
-        public override int GetHashCode()
+        private IEnumerable<string> GetWords(string line)
         {
-            var hashCode = 93243338;
-            hashCode = hashCode * -1521134295 + Day.GetHashCode();
-            hashCode = hashCode * -1521134295 + Month.GetHashCode();
-            return hashCode;
+            var items = line.Split(_separators, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var item in items)
+            {
+                var index = item.IndexOf("'");
+                var word = index <= 0 ? item : item.Substring(0, index);
+
+                if (word.ToLower().All(c => 'a' <= c && c <= 'z'))
+                    yield return word;
+            }
         }
+
     }
+
+
 }
