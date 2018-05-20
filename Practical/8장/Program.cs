@@ -10,33 +10,14 @@ namespace _8장
     {
         static void Main(string[] args)
         {
-            string s = "12b345";
-            int a;
 
-            if(int.TryParse(s, out a))
-            {
-                Console.WriteLine(a);
-            }
-            else
-            {
-                Console.WriteLine("변환 실패");
-            }
-            DateTime dt1;
-            if(DateTime.TryParse("2017/6/21", out dt1))
-                Console.WriteLine(dt1);
-            DateTime dt2;
-            if(DateTime.TryParse("2017/6/21 10:41:38", out dt2))
-                Console.WriteLine(dt2);
+            var date = DateTime.Now;
 
-            int x = 3;
-            Test(out x);
-            Console.WriteLine(x);
+            string s1 = date.ToString("yyyy-MM-dd");
+            int m = date.Month;
 
-        }
-        static void Test(out int a)
-        {
-            a = 5;
-
+            Console.WriteLine(s1);
+            
         }
     }
 }
