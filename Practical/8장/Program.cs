@@ -10,20 +10,32 @@ namespace _8장
     {
         static void Main(string[] args)
         {
-            var dt1 = new DateTime(2017, 10, 22);
-            var dt2 = new DateTime(2017, 10, 22, 8, 45, 20);
-            var today = DateTime.Today;
-            var now = DateTime.Now;
+            string s = "12b345";
+            int a;
 
-            Console.WriteLine($"Today:{today}");
-            Console.WriteLine($"Now:{now}");
+            if(int.TryParse(s, out a))
+            {
+                Console.WriteLine(a);
+            }
+            else
+            {
+                Console.WriteLine("변환 실패");
+            }
+            DateTime dt1;
+            if(DateTime.TryParse("2017/6/21", out dt1))
+                Console.WriteLine(dt1);
+            DateTime dt2;
+            if(DateTime.TryParse("2017/6/21 10:41:38", out dt2))
+                Console.WriteLine(dt2);
 
-            DayOfWeek dayOfWeek = today.DayOfWeek;
-            if(dayOfWeek == DayOfWeek.Sunday)
-                Console.WriteLine("일요일");
+            int x = 3;
+            Test(out x);
+            Console.WriteLine(x);
 
-
-        
+        }
+        static void Test(out int a)
+        {
+            a = 5;
 
         }
     }
