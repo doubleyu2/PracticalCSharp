@@ -24,7 +24,7 @@ namespace _8장
             double total = diff.TotalSeconds;
 
             Console.WriteLine(total);
-
+             
 
 
             var today = DateTime.Now;
