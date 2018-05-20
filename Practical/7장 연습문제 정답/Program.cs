@@ -23,6 +23,13 @@ namespace _7장_연습문제_정답
             var count = abbrs.Count;
             Console.WriteLine(count);
 
+            // 7.2.2 Remove
+            var test = abbrs.Remove("IOC");
+            Console.WriteLine("Remove 확인");
+            Console.WriteLine(test);
+            Console.WriteLine(abbrs.Count);
+
+
 
 
         }
@@ -77,5 +84,9 @@ namespace _7장_연습문제_정답
             get { return _dict.Count; }
         }
 
+        public bool Remove(string _abbr)
+        {
+            return _dict.Remove(_abbr);
+        }
     }
 }
