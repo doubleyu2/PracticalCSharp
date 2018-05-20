@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,20 +30,26 @@ namespace _7장_연습문제_정답
             Console.WriteLine(test);
             Console.WriteLine(abbrs.Count);
 
-
+            // 7.2.4 
+            var result = abbrs.Where(s => s.Key.Length == 3);
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Key}:{item.Value}");
+            }
 
 
         }
     }
 
 
-    class Abbreviations
+    class Abbreviations : IEnumerable<KeyValuePair<string, string>>
     {
-        private Dictionary<string, string> _dict = new Dictionary<string, string>();
+        private Dictionary<string, string> _dict;
 
         // 생성자
         public Abbreviations()
         {
+            _dict = new Dictionary<string, string>();
             var lines = File.ReadAllLines("Abbreviations.txt");
             _dict = lines.Select(line => line.Split('='))
                          .ToDictionary(x => x[0], x => x[1]);
@@ -87,6 +94,16 @@ namespace _7장_연습문제_정답
         public bool Remove(string _abbr)
         {
             return _dict.Remove(_abbr);
+        }
+
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+        {
+            return ((IEnumerable<KeyValuePair<string, string>>)_dict).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable<KeyValuePair<string, string>>)_dict).GetEnumerator();
         }
     }
 }
