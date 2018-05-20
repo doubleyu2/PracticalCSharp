@@ -11,7 +11,7 @@ namespace _7장_연습문제_정답
         static void Main(string[] args)
         {
             var line = "Cozy lummox gives smart squid who asks for job pen";
-            var dict = new Dictionary<char, int>();
+            var dict = new SortedDictionary<char, int>();
 
             foreach (var item in line)
             {
@@ -31,7 +31,7 @@ namespace _7장_연습문제_정답
                 } 
             }
 
-            foreach (var item in dict.OrderBy(p => p.Key))
+            foreach (var item in dict)
             {
                 Console.WriteLine($"{item.Key}:{item.Value}");
             }
