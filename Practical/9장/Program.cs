@@ -17,16 +17,9 @@ namespace _9장
 
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            var lines = File.ReadLines(filePath, Encoding.UTF8);
-            foreach (var item in lines)
-            {
-                if (item.StartsWith("a"))
-                {
-                    break;
-                }
-                //Console.WriteLine(item);
-            }
-
+            var lines = File.ReadLines(filePath, Encoding.UTF8).Take(3).ToList();
+            lines.ForEach(s => Console.WriteLine(s));
+           
             sw.Stop();
 
             double seconds = sw.Elapsed.TotalSeconds;
