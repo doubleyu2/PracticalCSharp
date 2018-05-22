@@ -13,20 +13,18 @@ namespace _9장
         static void Main(string[] args)
         {
 
-            var filePath = @"c:\Example\Greeting.txt";
-            
-            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
-            {
-                using (var reader = new StreamReader(stream))
-                using (var writer = new StreamWriter(stream))
-                {
-                    string texts = reader.ReadToEnd();
-                    stream.Position = 0;
-                    writer.WriteLine("삽입할 새 행1");
-                    writer.WriteLine("삽입할 새 행2");
-                    writer.Write(texts);
-                }
-            }`
+            var path = @"C:\Program Files\Microsoft Office\Office14\EXCEL.EXE";
+            var directoryName = Path.GetDirectoryName(path);
+            var fileName = Path.GetFileName(path);
+            var extension = Path.GetExtension(path);
+            var filenameWithoutExtension = Path.GetFileNameWithoutExtension(path);
+            var pathRoot = Path.GetPathRoot(path);
+
+            Console.WriteLine($"DirectoryName:{directoryName}");
+            Console.WriteLine($"FileName: {fileName}");
+            Console.WriteLine($"Extension: {extension}");
+            Console.WriteLine($"FileNameWithoutExtension: {filenameWithoutExtension}");
+            Console.WriteLine($"PathRoot: {pathRoot}");
         }
     }
 }
