@@ -14,23 +14,19 @@ namespace _9장
         {
 
             var filePath = @"c:\Example\Greeting.txt";
-            //   1
-            //   2
-            //  10
-            // 100
-            //9999
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var lines = File.ReadLines(filePath, Encoding.UTF8)
-                            .Select((s, ix) => String.Format("{0,4}:{1}", ix + 1, s))
-                            .ToList();
-
-            lines.ForEach(s => Console.WriteLine(s));
-            sw.Stop();
-
-            double seconds = sw.Elapsed.TotalSeconds;
-
-            Console.WriteLine(seconds);
+            
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+            {
+                using (var reader = new StreamReader(stream))
+                using (var writer = new StreamWriter(stream))
+                {
+                    string texts = reader.ReadToEnd();
+                    stream.Position = 0;
+                    writer.WriteLine("삽입할 새 행1");
+                    writer.WriteLine("삽입할 새 행2");
+                    writer.Write(texts);
+                }
+            }`
         }
     }
 }
