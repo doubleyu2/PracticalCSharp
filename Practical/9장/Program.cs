@@ -14,12 +14,18 @@ namespace _9장
         {
 
             var filePath = @"c:\Example\Greeting.txt";
-
+            //   1
+            //   2
+            //  10
+            // 100
+            //9999
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            var lines = File.ReadLines(filePath, Encoding.UTF8).Take(3).ToList();
+            var lines = File.ReadLines(filePath, Encoding.UTF8)
+                            .Select((s, ix) => String.Format("{0,4}:{1}", ix + 1, s))
+                            .ToList();
+
             lines.ForEach(s => Console.WriteLine(s));
-           
             sw.Stop();
 
             double seconds = sw.Elapsed.TotalSeconds;
