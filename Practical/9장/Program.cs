@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,18 +15,23 @@ namespace _9장
 
             var filePath = @"c:\Example\Greeting.txt";
 
-            if (File.Exists(filePath))
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var lines = File.ReadLines(filePath, Encoding.UTF8);
+            foreach (var item in lines)
             {
-                using (var reader = new StreamReader(filePath, Encoding.UTF8))
+                if (item.StartsWith("a"))
                 {
-                    while(!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-                        Console.WriteLine(line);
-                    }
+                    break;
                 }
-               
+                //Console.WriteLine(item);
             }
+
+            sw.Stop();
+
+            double seconds = sw.Elapsed.TotalSeconds;
+
+            Console.WriteLine(seconds);
         }
     }
 }
