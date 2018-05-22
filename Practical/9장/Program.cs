@@ -13,18 +13,14 @@ namespace _9장
         static void Main(string[] args)
         {
 
-            var path = @"C:\Program Files\Microsoft Office\Office14\EXCEL.EXE";
-            var directoryName = Path.GetDirectoryName(path);
-            var fileName = Path.GetFileName(path);
-            var extension = Path.GetExtension(path);
-            var filenameWithoutExtension = Path.GetFileNameWithoutExtension(path);
-            var pathRoot = Path.GetPathRoot(path);
+            var topdir = @"C:\Example\";
+            var subdir = @"Temp";
+            var fname = "Greeting.txt";
+            var path = Path.Combine(topdir, subdir, fname);
 
-            Console.WriteLine($"DirectoryName:{directoryName}");
-            Console.WriteLine($"FileName: {fileName}");
-            Console.WriteLine($"Extension: {extension}");
-            Console.WriteLine($"FileNameWithoutExtension: {filenameWithoutExtension}");
-            Console.WriteLine($"PathRoot: {pathRoot}");
+            Console.WriteLine($"TopDirectory:{topdir}");
+            Console.WriteLine($"Path: {path}");
+
         }
     }
 }
