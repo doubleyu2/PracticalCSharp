@@ -13,13 +13,11 @@ namespace _9장
         static void Main(string[] args)
         {
 
-            var topdir = @"C:\Example\";
-            var subdir = @"Temp";
-            var fname = "Greeting.txt";
-            var path = Path.Combine(topdir, subdir, fname);
+            var tempFileName = Path.GetTempFileName();
 
-            Console.WriteLine($"TopDirectory:{topdir}");
-            Console.WriteLine($"Path: {path}");
+            var fileName = Path.GetFileName(tempFileName);
+            Console.WriteLine(tempFileName);
+            Console.WriteLine(fileName);
 
         }
     }
