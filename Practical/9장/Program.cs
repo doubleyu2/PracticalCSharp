@@ -12,7 +12,7 @@ namespace _9장
     {
         static void Main(string[] args)
         {
-
+             
             var tempFileName = Path.GetTempFileName();
 
             var fileName = Path.GetFileName(tempFileName);
