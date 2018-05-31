@@ -11,16 +11,13 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "private List<string> results = new List<string>();";
-            var matches = Regex.Matches(text, @"\b[a-z]+\b")
-                                .Cast<Match>()
-                                .OrderBy(x => x.Length);
+            var text = "kor, KOR, Kor";
 
-            foreach (Match match in matches)
+            var mc = Regex.Matches(text, @"\bkor\b", RegexOptions.IgnoreCase);
+            foreach (Match m in mc)
             {
-                Console.WriteLine("Index = {0}, Length = {1}, Value = {2}", match.Index, match.Length, match.Value);
+                Console.WriteLine(m.Value);
             }
-
 
 
         }
