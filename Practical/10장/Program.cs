@@ -11,9 +11,9 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "Word, Excel ,Powerpoint ,            Outlook,OneNote";
-            var pattern = @"\s*,\s*";
-            var replaced = Regex.Replace(text, pattern, ", ");
+            var text = "1234567890123456";
+            var pattern = @"(\d{4})(\d{4})(\d{4})(\d{4})";
+            var replaced = Regex.Replace(text, pattern, "$1-$2-$3-$4");
             Console.WriteLine(replaced);
 
         }
