@@ -11,12 +11,12 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "Word, Excel ,Powerpoint , Outlook,OneNote";
-            var pattern = @"\s*,\s*";
-            string[] substrinbgs = Regex.Split(text, pattern);
-            foreach (string s in substrinbgs)
+            var text = "<person><name>김삿갓</name><age>22</age></person>";
+            var pattern = @"<.+>";
+            var matches = Regex.Matches(text, pattern);
+            foreach (Match m in matches)
             {
-                Console.WriteLine("'{0}'",s);
+                Console.WriteLine("'{0}'",m.Value);
             }
 
         }
