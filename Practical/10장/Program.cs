@@ -12,7 +12,7 @@ namespace _10장
         static void Main(string[] args)
         {
             var text = "<person><name>김삿갓</name><age>22</age></person>";
-            var pattern = @"<(\w[^>]+)>";
+            var pattern = @"<(.+?)>";
             var matches = Regex.Matches(text, pattern);
             foreach (Match m in matches)
             {
