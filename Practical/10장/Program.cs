@@ -11,12 +11,12 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "kor, KOR, Kor";
-
-            var mc = Regex.Matches(text, @"\bkor\b", RegexOptions.IgnoreCase);
-            foreach (Match m in mc)
+            var text = "Word\nExcel\nPowerpoint\nOutlook\nOneNote\n";
+            var pattern = @"^[a-zA-Z]{5,7}$";
+            var matches = Regex.Matches(text, pattern, RegexOptions.Multiline);
+            foreach (Match m in matches)
             {
-                Console.WriteLine(m.Value);
+                Console.WriteLine("{0} {1}",m.Index, m.Value);
             }
 
 
