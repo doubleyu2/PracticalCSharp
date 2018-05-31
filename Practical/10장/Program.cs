@@ -11,14 +11,13 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "<person><name>김삿갓</name><age>22</age></person>";
-            var pattern = @"<(.+?)>";
+            var text = "<p>가나다라마</p><p>바사아자차</p>";
+            var pattern = @"<p>(.*?)</p>";
             var matches = Regex.Matches(text, pattern);
-            foreach (Match m in matches)
+            foreach (Match item in matches)
             {
-                Console.WriteLine("'{0}'",m.Groups[1].Value);
+                Console.WriteLine("'{0}'", item.Groups[1].Value);
             }
-
         }
     }
 }
