@@ -19,9 +19,7 @@ namespace _10장
 
             if (match.Success)
             {
-                string replace = reg.Replace(match.Value, "$1-$2-$3");
-
-                Console.WriteLine(replace);
+                Console.WriteLine($"index: {match.Index}, Value: {match.Value}");
             }
 
 
