@@ -11,12 +11,13 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            var text = "<p>가나다라마</p><p>바사아자차</p>";
-            var pattern = @"<p>(.*?)</p>";
+            var text = "기러기 펠리컨 청둥오리 오리너구리 토마토 pops push pop";
+            var pattern = @"\b(\w)\w\1\b";
             var matches = Regex.Matches(text, pattern);
+
             foreach (Match item in matches)
             {
-                Console.WriteLine("'{0}'", item.Groups[1].Value);
+                Console.WriteLine("'{0}'",item.Value);
             }
         }
     }
