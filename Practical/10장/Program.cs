@@ -11,15 +11,14 @@ namespace _10장
     {
         static void Main(string[] args)
         {
-            Regex reg = new Regex(@"(010)[- ]?(\d{4})[- ]?(\d{4})");
+            var text = "private List<string> results = new List<string>();";
+            var matches = Regex.Matches(text, @"\b[a-z]+\b")
+                                .Cast<Match>()
+                                .OrderBy(x => x.Length);
 
-            string text = "안녕하세요 01037397593";
-
-            Match match = reg.Match(text);
-
-            if (match.Success)
+            foreach (Match match in matches)
             {
-                Console.WriteLine($"index: {match.Index}, Value: {match.Value}");
+                Console.WriteLine("Index = {0}, Length = {1}, Value = {2}", match.Index, match.Length, match.Value);
             }
 
 
