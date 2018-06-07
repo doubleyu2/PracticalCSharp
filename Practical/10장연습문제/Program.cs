@@ -13,39 +13,29 @@ namespace _10장연습문제
         static void Main(string[] args)
         {
 
-            var textlines = File.ReadLines("sample.txt");
+            var texts = new[] {
+               "Time is money.",
+               "What time is it?",
+               "It will take time.",
+               "We reorganized the timetable.",
+            };
 
-            
-            foreach (var item in textlines)
+            var pattern = @"\btime\b";
+
+            foreach (var text in texts)
             {
-                var numbers = GetNumber(item);
-
-                foreach (var number in numbers)
+                var matched = Regex.Matches(text, pattern, RegexOptions.IgnoreCase)
+                                    .Cast<Match>();
+                foreach (var item in matched)
                 {
-                    Console.WriteLine(number);
+                    Console.WriteLine($"{item.Value},{item.Index}");
                 }
-
-               
-            }
-        
- 
-
-        }
-
-        static IEnumerable<int> GetNumber(string _text)
-        {
-            var pattern = @"\b\d{3,}\b";
-
-            var matches = Regex.Matches(_text, pattern)
-                               .Cast<Match>();
-
-            foreach (var match in matches)
-            {
-                yield return int.Parse(match.Value);
+                    
 
             }
 
-            
         }
+
+     
     }
 }
