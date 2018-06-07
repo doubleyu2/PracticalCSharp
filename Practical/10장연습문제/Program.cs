@@ -12,16 +12,20 @@ namespace _10장연습문제
     {
         static void Main(string[] args)
         {
-            var textlines = File.ReadLines("sample.txt");
+            var textlines = File.ReadLines("sample.html");
 
-            //version="v4.0"
             foreach (var item in textlines)
             {
-                var pattern = @"version[ ]*=[ ]*""v4\.0";
+                string replace = Regex.Replace(item, @"<(/?)([A-Z][A-Z0-9]*)([^>]*)>", m =>
+                {
+                    return string.Format("<{0}{1}{2}>", m.Groups[1].Value, m.Groups[2].Value.ToLower(), m.Groups[3].Value);
 
-                string replace =Regex.Replace(item, pattern, @"version=""v5.0", RegexOptions.IgnoreCase);
+                });
 
                 Console.WriteLine(replace);
+
+
+
             }
         
 
