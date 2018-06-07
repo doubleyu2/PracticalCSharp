@@ -12,27 +12,18 @@ namespace _10장연습문제
     {
         static void Main(string[] args)
         {
+            var textlines = File.ReadLines("sample.txt");
 
-            var texts = new[] {
-               "Time is money.",
-               "What time is it?",
-               "It will take time.",
-               "We reorganized the timetable.",
-            };
-
-            var pattern = @"\btime\b";
-
-            foreach (var text in texts)
+            //version="v4.0"
+            foreach (var item in textlines)
             {
-                var matched = Regex.Matches(text, pattern, RegexOptions.IgnoreCase)
-                                    .Cast<Match>();
-                foreach (var item in matched)
-                {
-                    Console.WriteLine($"{item.Value},{item.Index}");
-                }
-                    
+                var pattern = @"version[ ]*=[ ]*""v4\.0";
 
+                string replace =Regex.Replace(item, pattern, @"version=""v5.0", RegexOptions.IgnoreCase);
+
+                Console.WriteLine(replace);
             }
+        
 
         }
 

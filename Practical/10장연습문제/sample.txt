@@ -1,3 +1,6 @@
-﻿H123 4567 9876 as 23
-top 59128 jello time 405
-add remove insert 432 567 890M 4 54
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+</configuration>
