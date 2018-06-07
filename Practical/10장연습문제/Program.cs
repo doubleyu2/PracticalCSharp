@@ -12,22 +12,18 @@ namespace _10장연습문제
     {
         static void Main(string[] args)
         {
-            var textlines = File.ReadLines("sample.html");
+            var text = "기러기 국제경제국 다들잠들다 너구리 시집간집시 토마토 건조할조건";
 
-            foreach (var item in textlines)
+            var pattern = @"\b(\w)(\w)\w\2\1\b";
+
+            var matchs = Regex.Matches(text, pattern).Cast<Match>();
+
+            foreach (var item in matchs)
             {
-                string replace = Regex.Replace(item, @"<(/?)([A-Z][A-Z0-9]*)([^>]*)>", m =>
-                {
-                    return string.Format("<{0}{1}{2}>", m.Groups[1].Value, m.Groups[2].Value.ToLower(), m.Groups[3].Value);
-
-                });
-
-                Console.WriteLine(replace);
-
-
-
+                Console.WriteLine(item.Value);
             }
-        
+
+
 
         }
 
