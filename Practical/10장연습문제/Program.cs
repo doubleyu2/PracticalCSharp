@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace _10장연습문제
 {
@@ -11,33 +12,40 @@ namespace _10장연습문제
     {
         static void Main(string[] args)
         {
-            while (true)
+
+            var textlines = File.ReadLines("sample.txt");
+
+            
+            foreach (var item in textlines)
             {
-                var text = Console.ReadLine();
-                if (text == "-1")
+                var numbers = GetNumber(item);
+
+                foreach (var number in numbers)
                 {
-                    break;
+                    Console.WriteLine(number);
                 }
-                bool result = IsMatch(text);
-                Console.WriteLine(result);
+
+               
+            }
+        
+ 
+
+        }
+
+        static IEnumerable<int> GetNumber(string _text)
+        {
+            var pattern = @"\b\d{3,}\b";
+
+            var matches = Regex.Matches(_text, pattern)
+                               .Cast<Match>();
+
+            foreach (var match in matches)
+            {
+                yield return int.Parse(match.Value);
+
             }
 
-            //           var matches = Regex.Matches(text, pattern);
-
+            
         }
-        public static bool IsMatch(string _text)
-        {
-            var pattern = @"(0[789]0-\d{4}-\d{4})";
-            var match = Regex.Match(_text, pattern);
-
-            string value = match.Groups[1].Value;
-            Console.WriteLine(value);
-
-
-            return match.Success;
-
-
-        }
-
     }
 }
