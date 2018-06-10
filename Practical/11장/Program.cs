@@ -61,16 +61,27 @@ namespace _11장
                                     new XElement("title", "올리버 트위스트"),
                                     new XElement("title", "크리스마스 캐럴")));
 
-            xdoc.Root.AddFirst(element);
+            xdoc.Root.Add(element);
             
             foreach (var item in xdoc.Root.Elements())
             {
                 Console.WriteLine(item.Element("name").Value);
             }
 
-            var elements2 = xdoc.Root.Elements()
-                                     .Where(x => x.Element("name").Value == "찰스 디킨스");
-            elements2.Remove();
+            string elmstring =
+                @"<novelist>
+                    <name eng=""Mark Twain""> 마크 트웨인 </name> 
+                    <birth> 1835-11-30</birth> 
+                    <death> 1910-03-21</death>
+                    <masterpieces>
+                    <title> 도금시대</title> 
+                    <title> 아서 왕 궁정의 코네티컷 양키 </title> 
+                    </masterpieces> 
+                 </novelist>";
+            var newElement = XElement.Parse(elmstring);
+
+            element.ReplaceWith(newElement);
+
 
             Console.WriteLine();
 
