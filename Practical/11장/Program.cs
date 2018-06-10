@@ -11,6 +11,19 @@ namespace _11장
     {
         static void Main(string[] args)
         {
+
+
+            var novelists = new XElement("novelists",
+                new XElement("novelist",
+                    new XElement("name", "마크 트웨인", new XAttribute("eng", "Mark Twain")),
+                    new XElement("birth", "1835-11-30"),
+                    new XElement("death", "1910-03-21")
+                   ),
+                new XElement("novelist",
+                    new XElement("name", "어니스트 헤밍웨이")));
+
+                   
+
             string xmlstring =
                   @"<?xml version=""1.0"" encoding=""utf-8"" ?>
                     <novelists>
