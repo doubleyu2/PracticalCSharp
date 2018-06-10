@@ -16,7 +16,8 @@ namespace _11장
             foreach (var xnovelist in xelements)
             {
                 XElement xname = xnovelist.Element("name");
-                Console.WriteLine(xname.Value);
+                var birth = (DateTime)xnovelist.Element("birth");
+                Console.WriteLine($"Name: {xname.Value}, Birth:{birth.ToShortDateString()}");
             }
         }
     }
