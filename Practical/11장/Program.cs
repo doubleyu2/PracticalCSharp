@@ -53,9 +53,19 @@ namespace _11장
             var root = new XElement("novelists", elements);
             var xdoc = new XDocument(root);
 
-            foreach (var element in xdoc.Root.Elements())
+            var element = new XElement("novelist",
+                                new XElement("name", "찰스 디킨스", new XAttribute("eng", "Charles Dickens")),
+                                new XElement("birth", "1812-02-07"),
+                                new XElement("death", "1870-06-09"),
+                                new XElement("masterpieces",
+                                    new XElement("title", "올리버 트위스트"),
+                                    new XElement("title", "크리스마스 캐럴")));
+
+            xdoc.Root.Add(element);
+
+            foreach (var item in xdoc.Root.Elements())
             {
-                Console.WriteLine(element.Element("name").Value);
+                Console.WriteLine(item.Element("name").Value);
             }
         }       
 
