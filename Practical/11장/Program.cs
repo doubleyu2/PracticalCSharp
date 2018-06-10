@@ -62,6 +62,17 @@ namespace _11장
                                     new XElement("title", "크리스마스 캐럴")));
 
             xdoc.Root.AddFirst(element);
+            
+            foreach (var item in xdoc.Root.Elements())
+            {
+                Console.WriteLine(item.Element("name").Value);
+            }
+
+            var elements2 = xdoc.Root.Elements()
+                                     .Where(x => x.Element("name").Value == "찰스 디킨스");
+            elements2.Remove();
+
+            Console.WriteLine();
 
             foreach (var item in xdoc.Root.Elements())
             {
