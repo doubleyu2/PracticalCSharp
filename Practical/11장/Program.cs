@@ -13,11 +13,11 @@ namespace _11장
         {
             var xdoc = XDocument.Load("novelists.xml");
             var xnovelists = xdoc.Root.Elements()
-                                      .Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
+                                      .OrderBy(x => (string)(x.Element("name").Attribute("eng")));
 
             foreach (var xnovelist in xnovelists)
             {
-                var xname = xnovelist.Element("name");
+                var xname = xnovelist.Element("name").Attribute("eng");
                 var birth = (DateTime)xnovelist.Element("birth");
                 Console.WriteLine($"Name:{xname.Value},Birthdate:{birth.ToShortDateString()}");
 
