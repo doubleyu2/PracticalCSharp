@@ -12,16 +12,11 @@ namespace _11장
         static void Main(string[] args)
         {
             var xdoc = XDocument.Load("novelists.xml");
+            var xtitles = xdoc.Root.Descendants("title");
 
-            foreach (var xnovelist in xdoc.Root.Elements())
+            foreach (var xtitle in xtitles)
             {
-                var xname = xnovelist.Element("name");
-                var works = xnovelist.Element("masterpieces")
-                                     .Elements("title")
-                                     .Select(x => x.Value);
-
-                Console.WriteLine($"Name: {xname.Value},{string.Join(", ",works)}");
-
+                Console.WriteLine(xtitle.Value);
             }
         }
     }
