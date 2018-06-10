@@ -61,7 +61,7 @@ namespace _11장
                                     new XElement("title", "올리버 트위스트"),
                                     new XElement("title", "크리스마스 캐럴")));
 
-            xdoc.Root.Add(element);
+            xdoc.Root.AddFirst(element);
 
             foreach (var item in xdoc.Root.Elements())
             {
