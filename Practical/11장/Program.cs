@@ -12,12 +12,15 @@ namespace _11장
         static void Main(string[] args)
         {
             var xdoc = XDocument.Load("novelists.xml");
-            var xelements = xdoc.Root.Elements();
-            foreach (var xnovelist in xelements)
+            var xnovelists = xdoc.Root.Elements()
+                                      .Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
+
+            foreach (var xnovelist in xnovelists)
             {
-                XElement xname = xnovelist.Element("name");
-                XAttribute xeng = xname.Attribute("eng");
-                Console.WriteLine($"Name: {xname.Value}, NameAttr:{xeng?.Value}");
+                var xname = xnovelist.Element("name");
+                var birth = (DateTime)xnovelist.Element("birth");
+                Console.WriteLine($"Name:{xname.Value},Birthdate:{birth.ToShortDateString()}");
+
             }
         }
     }
