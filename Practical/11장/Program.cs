@@ -11,47 +11,30 @@ namespace _11장
     {
         static void Main(string[] args)
         {
+            string xmlstring =
+                  @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+                    <novelists>
+                      <novelist>
+                        <name eng=""Agatha Christie"">아가사 크리스티</name>
+                        <birth>1890-09-15</birth>
+                        <death>1976-01-12</death>
+                        <masterpieces>
+                          <title>그리고 아무도 없었다</title>
+                          <title>오리엔트 특급 살인</title>
+                        </masterpieces>
+                      </novelist>
+                    </novelists>";
 
-            var novelists = ReadNovelists();
+            var xdoc = XDocument.Parse(xmlstring);
 
-            foreach (var novelist in novelists)
+            foreach (var item in xdoc.Root.Elements())
             {
-                Console.WriteLine($"Name: {novelist.Name}, Birth: {novelist.Birth.Year}, Death: {novelist.Death.Year}, {string.Join("-, ", novelist.Masterpieces)}");
-            }                
-        
-        }
+                var birthD = item.Element("birth");
+                var deathD = item.Element("death");
+                Console.WriteLine($"{birthD.Value},  ,{deathD.Value}");
+            }
 
-        static IEnumerable<Novelist> ReadNovelists()
-        {
-            var xdoc = XDocument.Load("novelists.xml");
-            var novelists = xdoc.Root.Elements()
-                                     .Select(x => new Novelist
-                                     {
-                                         Name = (string)x.Element("name"),
-                                         EngName = (string)(x.Element("name").Attribute("eng")),
-                                         Birth = (DateTime)x.Element("birth"),
-                                         Death = (DateTime)x.Element("death"),
-                                         Masterpieces = x.Element("masterpieces")
-                                                        .Elements("title")
-                                                        .Select(title => title.Value)
-                                                        .ToArray()
-                                     });
-            return novelists.ToArray();
         }
 
     }
-
-
-    class Novelist
-    {
-        public string Name { get; set; }
-        public string EngName { get; set; }
-        public DateTime Birth { get; set; }
-        public DateTime Death { get; set; }
-        public IEnumerable<string> Masterpieces { get; set; }
-
-
-    }
-
-  
 }
