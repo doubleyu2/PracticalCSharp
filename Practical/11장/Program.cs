@@ -12,11 +12,17 @@ namespace _11장
         static void Main(string[] args)
         {
             var xdoc = XDocument.Load("novelists.xml");
-            var xtitles = xdoc.Root.Descendants("title");
+            var novelists = xdoc.Root.Elements()
+                                     .Select(x => new
+                                     {
+                                         Name = (string)x.Element("name"),
+                                         Birth = (DateTime)x.Element("birth"),
+                                         Death = (DateTime)x.Element("death"),
+                                     });
 
-            foreach (var xtitle in xtitles)
+            foreach (var novelist in novelists)
             {
-                Console.WriteLine(xtitle.Value);
+                Console.WriteLine($"Name: {novelist.Name}, Birth: {novelist.Birth.Year}, Death: {novelist.Death.Year}");
             }
         }
     }
