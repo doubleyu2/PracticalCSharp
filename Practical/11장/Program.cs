@@ -89,7 +89,10 @@ namespace _11장
             {
                 Console.WriteLine(item.Element("name").Value);
             }
-        }       
+
+            xdoc.Save("newNovelists.xml");
+        }    
+        
 
     }
 
