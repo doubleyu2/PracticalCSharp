@@ -26,7 +26,13 @@ namespace _11장_연습문제
                 }
             }
             {
-
+                var year = xelements.Select(x => new { Name = x.Element("name").Value, Firstplayed = x.Element("firstplayed").Value })
+                                    .OrderBy(a => int.Parse(a.Firstplayed));
+                foreach (var item in year)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{item.Name}:{item.Firstplayed}");
+                }
 
             }
         }
