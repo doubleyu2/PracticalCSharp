@@ -42,6 +42,16 @@ namespace _11장_연습문제
                 Console.WriteLine();
                 Console.WriteLine(members.Name);
             }
+
+            {
+                var ballsport = new XElement("ballsport", new XElement("name", "축구", new XAttribute("chinese", "chookgu")), 
+                                                          new XElement("teammembers", "12"),
+                                                          new XElement("firstplayed", "1800"));
+
+                xdoc.Root.Add(ballsport);
+                xdoc.Save("newfile.xml");
+
+            }
         }
     }
 }
