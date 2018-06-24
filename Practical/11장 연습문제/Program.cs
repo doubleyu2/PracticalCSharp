@@ -35,6 +35,13 @@ namespace _11장_연습문제
                 }
 
             }
+
+            {
+                var members = xelements.Select(x => new { Name = x.Element("name").Value, members = x.Element("teammembers").Value })
+                                       .OrderByDescending(a => int.Parse(a.members)).First();
+                Console.WriteLine();
+                Console.WriteLine(members.Name);
+            }
         }
     }
 }
