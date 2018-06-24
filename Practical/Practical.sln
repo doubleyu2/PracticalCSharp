@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11장", "11장\11장.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11장 연습문제", "11장 연습문제\11장 연습문제.csproj", "{B8744C37-5453-47BA-BF74-5258D072EE00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image 처리", "Image 처리\Image 처리.csproj", "{3CF918E9-04BE-4D84-8591-C5BE845F65C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{B8744C37-5453-47BA-BF74-5258D072EE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8744C37-5453-47BA-BF74-5258D072EE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8744C37-5453-47BA-BF74-5258D072EE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF918E9-04BE-4D84-8591-C5BE845F65C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF918E9-04BE-4D84-8591-C5BE845F65C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF918E9-04BE-4D84-8591-C5BE845F65C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF918E9-04BE-4D84-8591-C5BE845F65C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

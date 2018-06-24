@@ -1,0 +1,12 @@
+﻿{
+  "type": "service_account",
+  "project_id": "glossy-agency-205112",
+  "private_key_id": "23ed4045b81180c68e7ecf300b6cce6bb15066a9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDwhVRtxA51TZw1\nChu9V1ymiVStwaBZM3HOVkFsM1RNj/c/vyIcSw4uh7eLutg4gG53UidcY0LKKq6H\nS0uGYFvmsIX1lR/VXPbZWa+LU5z9Mco+Ca0OvqVOdJDfmXwTJfnv8UAtIQjvAM8S\nZ9/4FDWW1FLHG4MMIeTYlSlCacMlWgnQaoQtZ+8pfmEsjDXt5TktgIC8FMnlQ3Hx\nU8qauyRVNcByLNgQG9XSB+/9oste7il6hfHDUrqzq6Mn9HX9xhSyNeCLs93Acfpb\nYi7qcFN9cT9KvF/Nxnw81+y/FrkfRkCoQOtA85W3+1BAAf0dWE95VEjimWnY88US\n9GZ9xKixAgMBAAECggEAFfWATLC1hrdmG3APsgjRtkkrvFzlDjvMiEN2/+FMUTQD\nhXQGcdmW4v/kTasqfjcYjseG/S/5SzKcIlFJJQyzW0OSyWX65OySw2uFI8Xnm3Sy\nI5mXzZSxjDEHgIiXa7qf/+xxWOVvFr4GycYGzFQRA/Mg1xmPjHokNfNhU9VK2iQZ\n1FVX251ZvZBrvvH4ZdpTix1bHctMe0Vo2efualue4QRzKb1E7o4p9XwtAvRLNEhv\nWdOgCEAh2xK0SxYfiGxsUeJLVTZ0xmAfD5A+H7SMPF5hFNd5JNHZ+va3/7fnmslS\nDrqd5QXSiu3TEmclom5COyTdVxTk9JToEdRPFbbcWQKBgQD/z3AMH6B4sBjjkPrn\nx0qfOfMFxCxS/XXoS6Seo+FzvOpl6XSxQawJ4JCiwkl/wdMf5YgDXI2j0s6x0DVQ\n90VXgff9BjAbPhITaHfDHgxwBlBXaL3ZFOs3agAV19QjmsGa0GgHGsPfFuKFHiY1\n2B4DP/fyOvEwEoVD0dZGtNfuOQKBgQDwsv1WjKkWDPjIE2OYkpLRo4xxkLVZ4MkR\nFhs7wtJtdt7Q3VG+Qe0LXwybL6/+KfAaIlABMz585XL/CEQYNu6qS9wt73h5yXYa\n5JdQQJZmJUqiW6mQ7gyoKalvZd2c+FtjXm0P06/r/jrbF5SoNds6OJNl/Yh3fmta\njOadL/WOOQKBgQCiUI1YI/k+mv4v5x5NUzcWMT7yubcmMY1PCDA8OOAlAAn7AFb6\n4iC3Y7Zij8TzO5kq9AmJmICHIovkZ6hs53koPV+NPQ/pOUle5zqWo8pgiqEP1XYg\n+BUH5EqJkZkZvmh6QyK+30zJkUvKC4dTQv5IMZ6yJJRFXHsSvWKpGraogQKBgQDU\n6U8k5umOgszxlg0MYeMTI3tQ3XM9XJQe1BIk67FdeL+hu5PaGtDGtT4ea7FevtQP\nGfjxBtYofoIZS8OIM9crtky+KUzFVcpuAXRDXc5r7mK1eSVl+NwjSC8DRfUhK6MT\nI+yPCm5b7xc6xAIQRQt11aO0nO7A3Iezol0//7NTKQKBgH9DrQ4dVN72lcIK2GdJ\n0v+xSfBXEfmBeBDahQh3L2/8M1JVQWHxACk2WE3MDa12Dj7h9BOc9XPQf4gpeV5m\nrTxK6N8rsoAhpFn8zDizG+htVm6+qUNpFs7i97Z71PQYNcPkRkByxd4KBVIAIJ1g\nIVWAmp0ns4ZIbjda5goSjlBR\n-----END PRIVATE KEY-----\n",
+  "client_email": "visionnho@glossy-agency-205112.iam.gserviceaccount.com",
+  "client_id": "102367796207472283268",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/visionnho%40glossy-agency-205112.iam.gserviceaccount.com"
+}
