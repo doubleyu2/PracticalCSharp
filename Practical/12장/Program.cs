@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace _12장
 {
@@ -12,14 +14,30 @@ namespace _12장
     {
         static void Main(string[] args)
         {
-            using (XmlReader reader = XmlReader.Create("novels.xml")){
-                var serializer = new DataContractSerializer(typeof(Novel[]));
-                var novels = serializer.ReadObject(reader) as Novel[];
-                foreach (var novel in novels)
-                {
-                    Console.WriteLine(novel);
-                }
+            var novel = new Novel
+            {
+                Author = "제임스 P. 호건",
+                Title = "별의 계승자",
+                Published = 1977,
+            };
+
+            var sb = new StringBuilder();
+            using (var writer = XmlWriter.Create(sb))
+            {
+                var serializer = new XmlSerializer(novel.GetType());
+                serializer.Serialize(writer, novel);
             }
+
+            var xmlText = sb.ToString();
+
+            using (var reader = XmlReader.Create(new StringReader(xmlText)))
+            {
+                var serializer = new XmlSerializer(typeof(Novel));
+                var novel2 = serializer.Deserialize(reader) as Novel;
+                Console.WriteLine(novel2);
+            }
+
+
         
         }
     }
