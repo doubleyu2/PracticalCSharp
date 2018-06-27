@@ -29,7 +29,7 @@ namespace _12장
             }
 
             var xmlText = sb.ToString();
-
+            Console.WriteLine(xmlText);
             using (var reader = XmlReader.Create(new StringReader(xmlText)))
             {
                 var serializer = new XmlSerializer(typeof(Novel));
@@ -42,10 +42,14 @@ namespace _12장
         }
     }
 
+    [XmlRoot("novel")]
     public class Novel
     {
+        [XmlElement(ElementName ="title")]
         public string Title { get; set; }
+        [XmlElement(ElementName ="author")]
         public string Author { get; set; }
+        [XmlElement(ElementName ="published")]
         public int Published { get; set; }
         public override string ToString()
         {
