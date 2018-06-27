@@ -12,25 +12,13 @@ namespace _12장
     {
         static void Main(string[] args)
         {
-            var novels = new Novel[]
-               {
-                    new Novel
-                    {
-                        Author = "제임스 P. 호건",
-                        Title = "별의 계승자",
-                        Published = 1977,
-                    },
-                    new Novel
-                    {
-                        Author = "허버트 조지 웰즈",
-                        Title = "타임머신",
-                        Published = 1895,
-                    },
-               };
-            using (var writer = XmlWriter.Create("novels.xml"))
-            {
-                var serializer = new DataContractSerializer(novels.GetType());
-                serializer.WriteObject(writer, novels);
+            using (XmlReader reader = XmlReader.Create("novels.xml")){
+                var serializer = new DataContractSerializer(typeof(Novel[]));
+                var novels = serializer.ReadObject(reader) as Novel[];
+                foreach (var novel in novels)
+                {
+                    Console.WriteLine(novel);
+                }
             }
         
         }
