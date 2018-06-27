@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace _12장
 {
@@ -16,40 +18,34 @@ namespace _12장
         {
             var novel = new Novel
             {
-                Author = "제임스 P. 호건",
-                Title = "별의 계승자",
-                Published = 1977,
+                Author = "로버트 A. 하인리히",
+                Title = "여름으로 가는 길",
+                Published = 1956,
             };
 
-            var sb = new StringBuilder();
-            using (var writer = XmlWriter.Create(sb))
+            using (var st = new FileStream("sample.json", FileMode.Create, FileAccess.Write))
+            using (var stream = new StreamWriter(st, Encoding.UTF8))
+            using (var writer = new JsonTextWriter(stream))
             {
-                var serializer = new XmlSerializer(novel.GetType());
+                JsonSerializer serializer = new JsonSerializer
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                };
                 serializer.Serialize(writer, novel);
             }
-
-            var xmlText = sb.ToString();
-            Console.WriteLine(xmlText);
-            using (var reader = XmlReader.Create(new StringReader(xmlText)))
-            {
-                var serializer = new XmlSerializer(typeof(Novel));
-                var novel2 = serializer.Deserialize(reader) as Novel;
-                Console.WriteLine(novel2);
-            }
+            
 
 
         
         }
     }
 
-    [XmlRoot("novel")]
     public class Novel
     {
-        [XmlElement(ElementName ="title")]
+
         public string Title { get; set; }
-        [XmlElement(ElementName ="author")]
         public string Author { get; set; }
-        [XmlElement(ElementName ="published")]
         public int Published { get; set; }
         public override string ToString()
         {
