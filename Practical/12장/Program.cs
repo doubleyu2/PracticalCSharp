@@ -12,24 +12,11 @@ namespace _12장
     {
         static void Main(string[] args)
         {
-            var novel = new Novel
+           using (var reader = XmlReader.Create("novel.xml"))
             {
-                Author = "제임스 P. 호건",
-                Title = "별의 계승자",
-                Published = 1997,
-            };
-
-            var settings = new XmlWriterSettings
-            {
-                Encoding = new System.Text.UTF8Encoding(false),
-                Indent = true,
-                IndentChars = " ",
-            };
-
-            using (var writer = XmlWriter.Create("novel.xml", settings))
-            {
-                var serializer = new DataContractSerializer(novel.GetType());
-                serializer.WriteObject(writer, novel);
+                var serializer = new DataContractSerializer(typeof(Novel));
+                var novel = serializer.ReadObject(reader) as Novel;
+                Console.WriteLine(novel);
             }
         }
     }
