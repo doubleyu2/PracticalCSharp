@@ -16,40 +16,32 @@ namespace _12장
     {
         static void Main(string[] args)
         {
-            var novel = new Novel
+            var p = new Person { Id = 1, Name = "홍길동" };
+
+            var pList = new List<Person>
             {
-                Author = "로버트 A. 하인리히",
-                Title = "여름으로 가는 길",
-                Published = 1956,
+                p,
+                new Person { Id = 2, Name = "김삿갓" }
             };
 
-            using (var st = new FileStream("sample.json", FileMode.Create, FileAccess.Write))
-            using (var stream = new StreamWriter(st, Encoding.UTF8))
-            using (var writer = new JsonTextWriter(stream))
-            {
-                JsonSerializer serializer = new JsonSerializer
-                {
-                    NullValueHandling = NullValueHandling.Ignore,
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                };
-                serializer.Serialize(writer, novel);
-            }
-            
+
+            string json = JsonConvert.SerializeObject(pList);
+            Console.WriteLine(json);
 
 
+            var dpList = JsonConvert.DeserializeObject<List<Person>>(json);
+
+            dpList.ForEach(a => Console.WriteLine(a.Name));
+      
         
         }
     }
-
-    public class Novel
+    
+    class Person
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public int Published { get; set; }
-        public override string ToString()
-        {
-            return string.Format($"Title: {Title}, Author: {Author}, Published: {Published}");
-        }
+
     }
 }
