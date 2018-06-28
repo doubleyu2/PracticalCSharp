@@ -13,13 +13,25 @@ namespace _12장_연습문제
     {
         static void Main(string[] args)
         {
-           using (var reader = XmlReader.Create("employees.xml"))
-            {
-                var serializer = new XmlSerializer(typeof(Employee));
-                var emp = serializer.Deserialize(reader) as Employee;
-                Console.WriteLine(emp.Name);
-            }
+            var emps = new Employee[] {
+                new Employee {
+                    Id = 12341,
+                    Name = "홍길순",
+                    HireDate = new DateTime(2017, 06, 01),
+                },
+                new Employee
+                {
+                    Id = 12342,
+                    Name = "김철수",
+                    HireDate = new DateTime(2016,12,01),
+                },
+            };
 
+            using (var writer = XmlWriter.Create("emp2.xml"))
+            {
+                var serializer = new DataContractSerializer(emps.GetType());
+                serializer.WriteObject(writer, emps);
+            }
         }
     }
 
