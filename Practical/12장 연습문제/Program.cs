@@ -22,19 +22,28 @@ namespace _12장_연습문제
                 MasterPieces = new string[] { "2001 스페이스 오디세이", "유년기의 끝" },
             };
 
-            using (var writer = XmlWriter.Create("novelist.xml"))
+            using (var stream = new FileStream("novelist.json", FileMode.Create, FileAccess.Write))
+            using (var writer = new StreamWriter(stream, Encoding.UTF8))
+            using (var ms = new MemoryStream())
             {
-                var serializer = new XmlSerializer(novelist.GetType());
-                serializer.Serialize(writer, novelist);
+                var serializer = new DataContractJsonSerializer(novelist.GetType());
+                serializer.WriteObject(ms, novelist);
+                var jsontext = Encoding.UTF8.GetString(ms.ToArray());
+                writer.Write(jsontext);
             }
+            
             
         }
     }
 
+    [DataContract(Name ="novelist")]
     public class Novelist
     {
+        [DataMember(Name = "name")]
         public string Name { get; set; }
+        [DataMember(Name = "birth")]
         public DateTime Birth { get; set; }
+        [DataMember(Name = "masterpieces")]
         [XmlArray("masterpieces")]
         [XmlArrayItem("title",typeof(string))]
         public string[] MasterPieces { get; set; }
