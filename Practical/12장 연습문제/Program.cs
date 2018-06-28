@@ -15,47 +15,29 @@ namespace _12장_연습문제
     {
         static void Main(string[] args)
         {
-            var emps = new Employee[]
+            var novelist = new Novelist
             {
-                new Employee
-                {
-                    Id = 12341,
-                    Name = "김하나",
-                    HireDate = new DateTime(2018,01,03),
-                },
-                new Employee
-                {
-                    Id = 12346,
-                    Name = "차두리",
-                    HireDate = new DateTime(2008,01,04),
-                },
+                Name = "아서 C 클라크",
+                Birth = new DateTime(1917, 12, 16),
+                MasterPieces = new string[] { "2001 스페이스 오디세이", "유년기의 끝" },
             };
 
-
-            using (var stream = new FileStream("employees.json", FileMode.Create, FileAccess.Write))
-            using (var writer = new StreamWriter(stream, Encoding.UTF8))
-            using (var ms = new MemoryStream())
-            { 
-                var serializer = new DataContractJsonSerializer(emps.GetType());
-
-                serializer.WriteObject(ms, emps);
-                var jsonText = Encoding.UTF8.GetString(ms.ToArray());
-                writer.Write(jsonText);
-                
+            using (var writer = XmlWriter.Create("novelist.xml"))
+            {
+                var serializer = new XmlSerializer(novelist.GetType());
+                serializer.Serialize(writer, novelist);
             }
             
         }
     }
 
-    [DataContract(Name = "employee")]
-    public class Employee
+    public class Novelist
     {
-        // 빠진 부분
-        public int Id { get; set; }
-        [DataMember(Name = "name")]
         public string Name { get; set; }
-        [DataMember(Name = "hiredate")]
-        public DateTime HireDate { get; set; }
-  
+        public DateTime Birth { get; set; }
+        [XmlArray("masterpieces")]
+        [XmlArrayItem("title",typeof(string))]
+        public string[] MasterPieces { get; set; }
+
     }
 }
