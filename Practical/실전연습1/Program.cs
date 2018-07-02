@@ -10,15 +10,16 @@ namespace 실전연습1
 {
     class Program
     {
+ 
         static void Main(string[] args)
         {
-            var km = new KeywordManager();
-
+            
             var wc = new WebClient
             {
                 Encoding = Encoding.UTF8
             };
            var src = wc.DownloadString("http://naver.com");
+           
 
 //            Console.WriteLine(src);
 
@@ -42,7 +43,8 @@ namespace 실전연습1
                 var keyword = Regex.Split(keywordtitle, @"</span>")[0];
 
                 // 키워드 매니저 Add
-                km.Add(new Keyword { Ranking = int.Parse(ranking), Title = keyword });
+                KeywordManager.Add(new Keyword { Ranking = int.Parse(ranking), Title = keyword });
+//                km.Add(new Keyword { Ranking = int.Parse(ranking), Title = keyword });
 
 
             }
@@ -50,7 +52,7 @@ namespace 실전연습1
 
             // 키워드 매니저 출력
 
-            km.Print();
+            KeywordManager.Print();
             
         }
     }
@@ -61,21 +63,21 @@ namespace 실전연습1
         public string Title { get; set; }
     }
 
-    public class KeywordManager
+    public static class KeywordManager
     {
-        private List<Keyword> keywordList;
+        private static List<Keyword> keywordList;
 
-        public KeywordManager()             // 생성자 method. class 이름과 같게. 반환타입 안적어도 됨-생성자 method 의 경우에만.
+        static KeywordManager()             // 생성자 method. class 이름과 같게. 반환타입 안적어도 됨-생성자 method 의 경우에만.
         {
             keywordList = new List<Keyword>();
         }
 
-        public void Add(Keyword keyword)
+        public static void Add(Keyword keyword)
         {
             keywordList.Add(keyword);
         }
 
-        public void Print()
+        public static void Print()
         {
             foreach (var item in keywordList)
             {
