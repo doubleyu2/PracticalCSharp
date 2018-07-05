@@ -6,23 +6,24 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using HtmlAgilityPack;
 namespace 실전연습1
 {
     class Program
     {
- 
+
         static void Main(string[] args)
         {
+
             var sw = new Stopwatch();
             sw.Start();
-           
-        
+
+
             while (true)
             {
                 // 1 분 경과후 실행 
 
-                if (sw.Elapsed.TotalSeconds <= 5 )
+                if (sw.Elapsed.TotalSeconds <= 5)
                 {
                     //프로그램 대기
                     continue;
@@ -36,33 +37,23 @@ namespace 실전연습1
                 };
                 var src = wc.DownloadString("http://naver.com");
 
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(src);
 
-                //            Console.WriteLine(src);
+                var nodes = doc.DocumentNode.SelectNodes("//div[@class='ah_roll PM_CL_realtimeKeyword_rolling_base']//li[@class='ah_item']");
 
-                var splited1 = Regex.Split(src, @"<h3 class=""blind"">실시간 급상승 검색어</h3>");
+                
+                var kdl = new List<Keyword>();
 
-                var splited2 = Regex.Split(splited1[1], @"<span class=""ah_ico_open""></span>");
 
-                var area = splited2[0];
-
-                var keywordlist = Regex.Split(area, @"<li class=""ah_item"">");
-
-                var kwdList = new List<Keyword>();
-
-                foreach (var item in keywordlist.Skip(1))
+                foreach (var node in nodes)
                 {
+                    var keyword = new Keyword
+                    {
+                        Ranking = int.Parse(node.SelectSingleNode(".//span[@class='ah_r']").InnerText),
+                        Title = node.SelectSingleNode(".//span[@class='ah_k']").InnerText
+                    };
 
-                    // 순위
-                    var tempkeyword = Regex.Split(item, @"<span class=""ah_r"">")[1];
-                    var ranking = Regex.Split(tempkeyword, @"</span>")[0];
-
-                    // 키워드 이름
-                    var keywordtitle = Regex.Split(item, @"<span class=""ah_k"">")[1];
-                    var keywordn = Regex.Split(keywordtitle, @"</span>")[0];
-
-                    var keyword = new Keyword { Ranking = int.Parse(ranking), Title = keywordn };
-
-                    // 키워드 있나? 
                     if (KeywordManager.HasKeyword(keyword) == false)
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -73,19 +64,72 @@ namespace 실전연습1
                     {
                         Console.WriteLine(keyword);
                     }
-                    // 키워드 매니저 Add
-                    kwdList.Add(keyword);
+
+                    kdl.Add(keyword);
 
                 }
 
                 KeywordManager.Clear();
-                foreach (var item in kwdList)
+                foreach (var item in kdl)
                 {
                     KeywordManager.Add(item);
                 }
 
                 sw.Restart();
             }
+
+
+
+
+            /*
+
+                            var splited1 = Regex.Split(src, @"<h3 class=""blind"">실시간 급상승 검색어</h3>");
+
+                            var splited2 = Regex.Split(splited1[1], @"<span class=""ah_ico_open""></span>");
+
+                            var area = splited2[0];
+
+                            var keywordlist = Regex.Split(area, @"<li class=""ah_item"">");
+
+
+                            foreach (var item in keywordlist.Skip(1))
+                            {
+
+                                // 순위
+                                var tempkeyword = Regex.Split(item, @"<span class=""ah_r"">")[1];
+                                var ranking = Regex.Split(tempkeyword, @"</span>")[0];
+
+                                // 키워드 이름
+                                var keywordtitle = Regex.Split(item, @"<span class=""ah_k"">")[1];
+                                var keywordn = Regex.Split(keywordtitle, @"</span>")[0];
+
+                                var keyword = new Keyword { Ranking = int.Parse(ranking), Title = keywordn };
+
+                                // 키워드 있나? 
+                                if (KeywordManager.HasKeyword(keyword) == false)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine(keyword);
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    Console.WriteLine(keyword);
+                                }
+                                // 키워드 매니저 Add
+                                kwdList.Add(keyword);
+
+                            }
+
+                            KeywordManager.Clear();
+                            foreach (var item in kwdList)
+                            {
+                                KeywordManager.Add(item);
+                            }
+
+                            sw.Restart();
+                        }           */
+
         }
     }
 
@@ -147,6 +191,7 @@ namespace 실전연습1
             return keywordList.Contains(keyword);
         }
 
-
     }
 }
+
+
