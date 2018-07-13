@@ -75,8 +75,14 @@ namespace 실전연습2
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine(article);
                         Console.ResetColor();
-                        SoundPlayer sp = new SoundPlayer("");
-                        sp.Play();
+                        MediaPlayer.MediaPlayerClass _player;
+                        _player = new MediaPlayer.MediaPlayerClass();
+
+                        _player.FileName = @"c:\Windows Notify.wav";
+                        _player.Play();
+
+                        //SoundPlayer sp = new SoundPlayer(@"c:\Windows Notify.wav");
+                        //sp.Play();
                     }
                     else Console.WriteLine(article);                // else 대신 if 문 안에서 continue
                 }
