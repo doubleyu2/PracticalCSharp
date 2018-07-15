@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _13장.Models;
+using System.Data.Entity;
 
 namespace _13장
 {
@@ -18,38 +19,20 @@ namespace _13장
                 db.SaveChanges();
             }*/
 
-            var db = new BooksDbContext();
-
-            var authors = db.Authors.Where(a => a.Books.Count() >= 2);
-
-            foreach (var item in authors)
+            foreach (var book in GetBooks())
             {
-                Console.WriteLine($"{item.Name} {item.Gender} {item.Birthday}");
+                Console.WriteLine($"{book.Title} {book.Author.Name}");
             }
 
-            var books = db.Books.OrderBy(b => b.PublishedYear).ThenBy(b => b.Author.Name);
-            foreach (var book in books)
-            {
-                Console.WriteLine($"{book.Title} {book.PublishedYear} {book.Author.Name}");
-            }
-
-            var groups = db.Books.GroupBy(b => b.PublishedYear).Select(g => new
-            {
-                Year = g.Key,
-                Count = g.Count(),
-            });
-
-            foreach (var g in groups)
-            {
-                Console.WriteLine($"{g.Year} {g.Count}");
-            }
-
-            var author = db.Authors.Where(a => a.Books.Count() == db.Authors.Max(x => x.Books.Count())).First();
-
-            Console.WriteLine($"{author.Name} {author.Gender} {author.Birthday}");
         }
 
-
+        static IEnumerable<Book> GetBooks()
+        {
+            using (var db = new BooksDbContext())
+            {
+                return db.Books.Where(b => b.PublishedYear > 1900).Include(nameof(Author)).ToList();
+            }
+        }
   
     }
 }
