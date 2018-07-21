@@ -13,56 +13,40 @@ namespace _13장_연습문제_다시
         {
             using (var db = new BooksDbContext())
             {
-                var author1 = new Author
-                {
-                    Name = "스티븐 킹",
-                    Birthday = new DateTime(1947, 9, 21),
-                    Gender = "M",
-                };
-                db.Authors.Add(author1);
+                //// 가장 긴 제목의 길이 (int)
+                //int LengthTitle = db.Books.Max(b => b.Title.Length);
+                //// 그 길이에 해당되는 책 목록 구하기 where
 
-                var author2 = new Author
-                {
-                    Name = "윌리엄 골딩",
-                    Birthday = new DateTime(1911, 9, 19),
-                    Gender = "F"
-                };
-                db.Authors.Add(author2);
+                //var maxLengthBooks = db.Books.Where(b => b.Title.Length == LengthTitle);
 
+                //foreach (var book in maxLengthBooks)
+                //{
+                //    Console.WriteLine(book.Title);
+                //}
 
-                var book1 = new Book
-                {
-                    Title = "샤이닝",
-                    PublishedYear = 1977,
-                    Author = author1,
-                };
-                var book2 = new Book
-                {
-                    Title = "밀물을 타고",
-                    PublishedYear = 1948,
-                    Author = new Author { Name = "애거사 크리스티", Birthday = new DateTime(1900, 1, 1), Gender = "F" },
-                };
+                //Console.WriteLine();
 
-                var book3 = new Book
-                {
-                    Title = "크리스마스 캐럴",
-                    PublishedYear = 1843,
-                    Author = new Author { Name = " 찰스 디킨스", Birthday = new DateTime(1921, 1, 1), Gender = "M" },
-                };
-                var book4 = new Book
-                {
-                    Title = "파리대왕",
-                    PublishedYear = 1954,
-                    Author = author2,
-                };
+                //// 발행년도 오래된 순서로 3권, 제목과 저자 
+                //var oldestBooks = db.Books.OrderBy(b => b.PublishedYear).Take(3);
+                //foreach (var book in oldestBooks)
+                //{
+                //    Console.WriteLine($"{book.Title}-{book.PublishedYear}-{book.Author.Name}");
+                //}
 
-                db.Books.Add(book1);
-                db.Books.Add(book2);
-                db.Books.Add(book3);
-                db.Books.Add(book4);
-            
-                db.SaveChanges();
+                // 각 저자의 서적 제목과 발행연도 표시. 저자는 생일이 늦은 순서로 나열
+
+                foreach (var author in db.Authors.OrderByDescending(a => a.Birthday))
+                {
+                    Console.WriteLine($"{author.Name}");
+                    Console.WriteLine($"{author.Books.Count()}");
+                    foreach (var item in author.Books)
+                    {
+
+                        Console.WriteLine($"-{item.Title},  {item.PublishedYear}");
+                    }
+                }
             }
+
         }
     }
 }
